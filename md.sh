@@ -1,6 +1,8 @@
 
 ## https://misc.flogisoft.com/bash/tip_colors_and_formatting
 
+VERSION=0.0.1
+
 # Define the colors
 TITLE="\e[1m"
 TITLE_CLEAN="\e[0m"
@@ -17,7 +19,7 @@ CLEAN="\e[0m"
 function helpme () {
     echo -e ""
     echo -e "---------------------------------------------------------------------"
-    echo -e "${TITLE}Mabs help to use the full potential of the md framework ${TITLE_CLEAN}"
+    echo -e "${TITLE}md framework help ${TITLE_CLEAN}"
     echo -e "---------------------------------------------------------------------"
     echo -e ""
     echo -e "${SUBTITLE}Usage:${CLEAN}  ${COMMAND}md <Command>${CLEAN}"
@@ -30,6 +32,10 @@ function helpme () {
     echo -e "        ${COMMAND}help${CLEAN}          Show this help"
     echo -e "        ${COMMAND}version${CLEAN}       Show the version"
     echo -e ""
+}
+
+function version() {
+  echo "MD version ${VERSION}"
 }
 
 helpme

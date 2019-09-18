@@ -98,15 +98,13 @@ executeDefaults "$@"
 ## check if they have the helper text
 ## register plugins
 
+# create functions that registrate the md framework in the bashr
 
-
+## best practices
+## https://codeburst.io/13-tips-tricks-for-writing-shell-scripts-with-awesome-ux-19a525ae05ae
 
 
 # Konvention
 # plugins werden in einem Ordner abgelegt.
 # der Ordner enthält ein bash Script mit dem selben namen des Ordners
-# das Script enthält eine execute Funktion, die vom  aufgerufen wird
-
-#./plugins/mvn_change_setting/mvn_change_setting.sh
-
-
+# das Script enthält eine execute Funktion, das Plugin ruft sich am Ende des Skripts selbst auf

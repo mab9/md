@@ -55,7 +55,7 @@ function version() {
 }
 
 ###
-# Check if a installed plugin has to be executed and execute it.
+# Check if one of the installed plugin has to be executed and execute it.
 
 function executePlugin() {
   ## gather installed plugins
@@ -68,6 +68,9 @@ function executePlugin() {
     fi
   done
 }
+
+###
+# Execute one of the default functions
 
 function executeDefaults() {
   command="$1"
@@ -88,7 +91,8 @@ function executeDefaults() {
   esac
 }
 
-
+echo yey
+echo $@
 executePlugin "$@"
 executeDefaults "$@"
 

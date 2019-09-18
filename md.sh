@@ -82,10 +82,8 @@ function mvn_settings_change() {
     done
 }
 
-
 function version() {
   echo "MD version ${VERSION}"
 }
 
 helpme
-selectTest

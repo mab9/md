@@ -84,6 +84,24 @@ function mvn_settings_change() {
 
 function version() {
   echo "MD version ${VERSION}"
+  echo "maintainer marcantoine.bruelhart@gmail.com"
+  echo ""
 }
 
-helpme
+
+command="$1"
+
+case $command in
+    mvnsetting)
+      mvn_settings_change
+        ;;
+    --version|-v|version)
+        version
+        ;;
+    --help)
+        helpme
+        ;;
+    *)
+        helpme
+        ;;
+esac

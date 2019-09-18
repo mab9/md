@@ -23,7 +23,6 @@ function helpme () {
     echo -e ""
     echo -e "${SUBTITLE}General commands${CLEAN}"
     echo -e ""
-    echo -e "        ${COMMAND}about${CLEAN}         Show the general information"
     echo -e "        ${COMMAND}version${CLEAN}       Show the version"
     echo -e "        ${COMMAND}help${CLEAN}          Show the help"
     echo -e ""
@@ -91,8 +90,6 @@ function executeDefaults() {
   esac
 }
 
-echo yey
-echo $@
 executePlugin "$@"
 executeDefaults "$@"
 

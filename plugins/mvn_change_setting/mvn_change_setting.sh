@@ -22,7 +22,8 @@ function execute() {
         echo You have to chose a number between 1 and ${#settings[@]}
       else
         # actualize the mvn setting
-        echo "You have chosen: $setting"
+        cp ~/.m2/${setting} ~/.m2/settings.xml
+        echo "You have chosen and configured the mvn setting: $setting"
         exit
       fi
     done

@@ -64,7 +64,7 @@ function executePlugin() {
 
   for elem in "${plugins[@]}"; do
     if [ "$elem" = "$1" ]; then
-      bash "${installDir}/plugins/${elem}/${elem}.sh"
+      bash "${installDir}/plugins/${elem}/${elem}.sh" "$@"
       exit
     fi
   done

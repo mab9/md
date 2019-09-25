@@ -13,6 +13,8 @@ COMMAND="\e[94m"
 #COMMAND="\e[32m"
 CLEAN="\e[0m"
 
+installDir=/home/mab/development/source/md/
+
 function helpme () {
     echo -e ""
     echo -e "---------------------------------------------------------------------"
@@ -58,12 +60,11 @@ function version() {
 
 function executePlugin() {
   ## gather installed plugins
-  #plugins=($(ls ./plugins/))
-  plugins=($(ls /home/mab/development/source/md/plugins/))
+  plugins=($(ls ${installDir}/plugins/))
 
   for elem in "${plugins[@]}"; do
     if [ "$elem" = "$1" ]; then
-      bash "./plugins/${elem}/${elem}.sh"
+      bash "${installDir}/plugins/${elem}/${elem}.sh"
       exit
     fi
   done

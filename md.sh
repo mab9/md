@@ -58,7 +58,8 @@ function version() {
 
 function executePlugin() {
   ## gather installed plugins
-  plugins=($(ls ./plugins/))
+  #plugins=($(ls ./plugins/))
+  plugins=($(ls /home/mab/development/source/md/plugins/))
 
   for elem in "${plugins[@]}"; do
     if [ "$elem" = "$1" ]; then

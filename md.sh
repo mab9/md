@@ -75,11 +75,11 @@ function executePlugin() {
 # Execute one of the default functions
 
 function executeDefaults() {
-  command="$1"
+  command="$1" # first layer
 
   case $command in
       mvnsetting)
-        mvn_settings_change
+          mvn_settings_change
           ;;
       --version|-v|version)
           version

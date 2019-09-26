@@ -4,6 +4,10 @@ echo "Delete pods of current kubernetes namespace"
 
 cnt=0 ## to check if the scirpt runningPods has to be executed
 i=1 ## to skip the first line
+
+##
+## check if user wishs to delete all pods: lsp | cut -d" " -f 1  (remove first line)
+
 kubectl get po | cut -d ' ' -f 1 | while read -r line ; do
     test $i -eq 1 && ((i=i+1)) && continue  ## to skip first line
 

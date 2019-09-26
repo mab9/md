@@ -17,9 +17,7 @@ installDir=/home/mab/development/source/md/
 
 function helpme () {
     echo -e ""
-    echo -e "---------------------------------------------------------------------"
-    echo -e "${TITLE}md framework help ${TITLE_CLEAN}"
-    echo -e "---------------------------------------------------------------------"
+    echo -e "${SUBTITLE}md framework help ${CLEAN}"
     echo -e ""
     echo -e "${SUBTITLE}Usage:${CLEAN}  ${COMMAND}md <Command>${CLEAN}"
     echo -e ""
@@ -30,9 +28,12 @@ function helpme () {
     echo -e ""
     echo -e "${SUBTITLE}Available plugins${CLEAN}"
     echo -e ""
+
+    ### PLUGINS
     for plugin in "${plugins[@]}"; do
     echo -e "        ${COMMAND}$plugin${CLEAN}"
     done
+    echo ""
 }
 
 

@@ -4,8 +4,9 @@
 #echo @
 
 function listProjects() {
-  echo "list projects"
-  ls ~/development/source
+  echo "Projects from the folder /home/mab/development/source:"
+  echo ""
+  ls ~/development/source | grep -v @#@
 }
 
 function workingProject() {
@@ -43,7 +44,6 @@ function help() {
 function executeDefaults() {
   command="$2" # second layer
 
-  echo "command" $command
   case $command in
       --list-projects|-l)
           listProjects

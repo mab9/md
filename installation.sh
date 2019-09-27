@@ -11,6 +11,7 @@ function installMd() {
     printf "\n# MD Framework \nfunction md() {\n\t %s \$@ \n}\n" "${MD_INSTALLATION_FOLDER}" >> ~/.bashrc
     chmod 755 ${MD_INSTALLATION_FOLDER}
     source ${HOME}/.bashrc
+    addMdConfigFile
   else
     printf "You have no .bashrc file in your home folder. You will have to do the installation by your self."
   fi
@@ -38,6 +39,27 @@ function runInstallation() {
           * ) printf "Please answer yes or no.\n";;
       esac
     done
+}
+
+# Add a md config file to the home folder with the default values
+#
+function createMdConfigFile() {
+  printf "working-dir=\n" > ~/.md
+  printf "source-dir=~/development/source\n" >> ~/.md
+  echo "create config file"
+}
+
+# Check if the md config file is already installed.
+#
+function addMdConfigFile() {
+  if grep -iq md/md.sh ~/.bashrc; then
+    read -p "The config file is already present, do you want to override it? " yn
+    case $yn in
+        [Yy]* ) printf "Overriding the md config file." && createMdConfigFile && exit;;
+        [Nn]* ) printf "Reusing the config file.\n\n" && exit;;
+        * ) printf "Please answer yes or no.\n";;
+    esac
+  fi
 }
 
 runInstallation

@@ -29,18 +29,27 @@ function workingProject() {
     done
 }
 
-function error() {
-  echo "Examples: md config -w dab"
-  echo ""
+function instructions() {
   echo "Options:"
   echo "  -l | --list-projects:       Output a list of all projects that are stored in ~/development/source"
   echo "  -w | --working-project:     Set a default working project to use it with other md commands like: 'md del camunda'"
+  echo "       --help:                Show help"
   echo ""
   echo "Usage:"
+  echo "  md config [Options]"
+  echo ""
+}
+
+function error() {
+  echo "Examples: md config -w dab"
+  echo ""
+  instructions
 }
 
 function help() {
-  echo "help"
+  echo "Help"
+  echo ""
+  instructions
 }
 
 function executeDefaults() {

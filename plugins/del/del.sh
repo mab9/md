@@ -1,5 +1,10 @@
 #!/bin/bash
 
+function listPods() {
+  kubectl get pods
+  echo ""
+}
+
 function deleteAll() {
   echo "Delete all pods of the current kubernets namespace. "
   echo ""
@@ -54,41 +59,51 @@ function deletePod() {
   #  echo ""
   #  echo "No argument matched a pod from current namespace"
   #fi
+}
 
-
+function instructions() {
+  echo "Options:"
+  echo "  -l | --list-pods:      List all kubectl pods for the working project"
+  echo "  -a | --all:            Delete all running pods"
+  echo "  -p | --pod             Delete pod that contains the string that is passed by the argument"
+  echo "       --help            Show help"
+  echo ""
+  echo "Usage:"
+  echo "  md del [Options] [Pod Name]"
+  echo ""
 }
 
 function error() {
-  echo "Examples: md del camunda, md del -a"
+  echo "Examples: md del -p camunda"
   echo ""
-  echo "Options:"
-  echo "  -a | --all: delete all running pods"
-  echo "  *         : delete pod containgig string that is passed by the argument"
-  echo ""
-  echo "Usage:"
+  instructions
 }
 
 function help() {
-  echo "help"
+  echo "Help"
+  echo ""
+  instructions
 }
-
 
 function executeDefaults() {
   command="$2" # second layer
 
   case $command in
+      --list-pods|-l)
+          listPods
+          ;;
       --all|-a)
           deleteAll
           ;;
       --help)
           help
           ;;
-      "")
-        error
-        ;;
+      --pod|-p)
+          deletePod $@
+          ;;
       *)
-        deletePod $@
-        ;;
+          error
+          ;;
   esac
 }
 

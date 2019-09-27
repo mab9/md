@@ -30,11 +30,13 @@ function workingProject() {
 }
 
 function error() {
-  echo Examples: md config -w dab
+  echo "Examples: md config -w dab"
   echo ""
-  echo Options:
+  echo "Options:"
+  echo "  -l | --list-projects:       Output a list of all projects that are stored in ~/development/source"
+  echo "  -w | --working-project:     Set a default working project to use it with other md commands like: 'md del camunda'"
   echo ""
-  echo Usage:
+  echo "Usage:"
 }
 
 function help() {

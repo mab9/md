@@ -1,14 +1,10 @@
-## use the following mvn settings
-# . make shure the maven settings path is set
-# . make shure the maven setting that will be used is found in the /developement/config folder
-# . change the maven setting
+######
+# Change the default mvn setting, so that it can be used without
+# explicit declaration.
 #
-## change default maven setting
-# . list all mvn settings
-# . choose one of them
-# . set as the default
-
-#@!plugin_name: change-mvn-setting
+# List all mvn settings located at the default place,
+# let the user choose a config file and replace the default setting.
+#
 
 function execute() {
   settings=( $(ls ~/.m2/ | grep -i settings) )

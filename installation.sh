@@ -44,7 +44,7 @@ function runInstallation() {
 # Add a md config file to the home folder with the default values
 #
 function createMdConfigFile() {
-  printf "working-dir=\n" > ~/.md
+  printf "working-project=\n" > ~/.md
   printf "source-dir=~/development/source\n" >> ~/.md
   printf "\ncreate config file\n\n"
 }
@@ -62,4 +62,5 @@ function addMdConfigFile() {
   fi
 }
 
+#addMdConfigFile
 runInstallation

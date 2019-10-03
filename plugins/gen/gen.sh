@@ -3,6 +3,7 @@
 
 #!/bin/bash
 
+currentBranch=`git symbolic-ref HEAD`
 mdConfigFile=/home/mab/.md
 workingProject=$(cat $mdConfigFile | grep -i working-project | cut -d "=" -f 2)
 sourceDir=$(cat $mdConfigFile | grep -i source-dir | cut -d "=" -f 2)
@@ -13,54 +14,49 @@ function listWorkingProjectModules() {
   ls ${sourceDir}/${workingProject} | grep -v @234## # grep to have a list with new lines instead to print all on one row.
 }
 
-function generateAll() {
-  currentBranch=`git symbolic-ref HEAD`
-
-  echo "Generate modules from the current branch ${currentBranch}"
+function generateAllModules() {
+  echo "Generate all modules from your current working-project and git flow branch: ${currentBranch}"
   echo ""
-  echo impl mcis command
+  pushd ${sourceDir}/${workingProject}*$var*
+  eval $(minikube docker-env)
+  mvn clean install -DskipTests
+  popd
 }
 
+function generateModules() {
+  echo "Generate modules of your current working-project and git flow branch: ${currentBranch}."
 
-function deletePod() {
-  echo "Delete pods of the current kubernets namespace. "
-  echo ""
+  echo $@
+  ls ${sourceDir}/${workingProject} | grep -vE "@234##|pom.xml|*.md|target" | while read -r line ; do
 
-  cnt=0 ## to check if the scirpt runningPods has to be executed
-  i=1 ## to skip the first line
+      ## iteriere über jedes modul
+      for modules in "$@"
+      do :
 
-  kubectl get po | cut -d ' ' -f 1 | while read -r line ; do
-      test $i -eq 1 && ((i=i+1)) && continue  ## to skip first line
-
-      ## iteriere über jedes Argument
-      for pod in "$@"
-      do
-         :
-
-        ## prüfe ob der Pod vom Argument vorhanden ist und lösche es
+        ## baue das gewünschte Modul
          case $line in
-           *"$pod"*)
+           *"$modules"*)
               echo ""
               echo "Generate module: $line"
-
-              pushd ${sourceDir}/${workingProject}*$var*
+              pushd ${sourceDir}/${workingProject}*$var* > /dev/null
               eval $(minikube docker-env)
               mvn clean install -DskipTests
-
-              popd
+              popd > /dev/null
              ;;
          esac
+
       done
 
       # todo add module not found and invoke error function
   done
+  echo ""
 }
 
 function instructions() {
   echo "Options:"
   echo "  -l | --list-modules:   List all working-projects modules"
   echo "  -a | --all:            Generate all working-projects modules without executing tests (-Dskiptests=true)"
-  echo "  -p | --pod             Generate all modules from the working-project, that contains the string that is passed by the argument"
+  echo "  -m | --modules         Generate all modules from the working-project, that contains the string that is passed by the argument"
   echo "       --help            Show help"
   echo ""
   echo "Usage:"
@@ -69,7 +65,7 @@ function instructions() {
 }
 
 function error() {
-  echo "Examples: md gen -p core"
+  echo "Examples: md gen -m core"
   echo ""
   instructions
 }
@@ -88,13 +84,13 @@ function executeDefaults() {
           listWorkingProjectModules
           ;;
       --all|-a)
-          generateAll
+          generateAllModules
           ;;
       --help)
           help
           ;;
-      --pod|-p)
-          deletePod $@
+      --modules|-m)
+          generateModules ${@:3}
           ;;
       *)
           error

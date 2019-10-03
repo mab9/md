@@ -52,7 +52,7 @@ function createMdConfigFile() {
 # Check if the md config file is already installed.
 #
 function addMdConfigFile() {
-  if cat ~/.md > /dev/null; then
+  if [ ! -f ~/.md ]; then
     read -p "The config file is already present, do you want to override it? " yn
     case $yn in
         [Yy]* ) printf "Overriding the md config file." && createMdConfigFile && exit;;
@@ -62,5 +62,5 @@ function addMdConfigFile() {
   fi
 }
 
-#addMdConfigFile
-runInstallation
+addMdConfigFile
+#runInstallation

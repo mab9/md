@@ -3,13 +3,26 @@
 #echo config plugin
 #echo @
 
-function listProjects() {
-  echo "Projects from the folder /home/mab/development/source:"
-  echo ""
-  ls ~/development/source | grep -v @#@
+mdConfigFile=/home/mab/.md
+workingProject=$(cat $mdConfigFile | grep -i working-project | cut -d "=" -f 2)
+sourceDir=$(cat $mdConfigFile | grep -i source-dir | cut -d "=" -f 2)
+
+function showCurrentWorkingProject() {
+    if [ -z "${workingProject}" ]; then  # n is the default and checks wether a value is here or not. z does the oposit
+      printf "You have no working-project configured!\n"
+      printf "To configure the working-project use the following command: \nmd config -w\n\n"
+    else
+      printf "Your current working project is: ${workingProject}.\n\n"
+    fi
 }
 
-function workingProject() {
+function listProjects() {
+  echo "Projects from the folder ${sourceDir}:"
+  echo ""
+  ls ${sourceDir} | grep -v @#@
+}
+
+function changeWorkingProject() {
   projects=( $(ls ~/development/source | grep -v @#@) ) # Einschränkung -> kein Projekt darf @#@ im Namen beinhalten!
   projects+=(exit)
 
@@ -20,10 +33,13 @@ function workingProject() {
       if [[ "$project" < "${#projects[@]}" ]] ; then
         echo You have to chose a number between 1 and ${#projects[@]}
       else
-        # actualize the working project
+        # actualize the working-project
+        wp=$(cat $mdConfigFile | grep -i working-project)
+        SEDCMD="s|${wp}|working-project=${project}|g"
 
-        ## todo add config file to save the current working project
-        echo "You have chosen and configured the project: $project as working project"
+        #echo $SEDCMD
+        sed -i "${SEDCMD}" ${mdConfigFile}
+        printf "Your working-project is now configured as: $project.\n\n"
         exit
       fi
     done
@@ -31,9 +47,10 @@ function workingProject() {
 
 function instructions() {
   echo "Options:"
-  echo "  -l | --list-projects:       Output a list of all projects that are stored in ~/development/source"
-  echo "  -w | --working-project:     Set a default working project to use it with other md commands like: 'md del camunda'"
-  echo "       --help:                Show help"
+  echo "  -c | --current-working-project:  Show current woring project"
+  echo "  -l | --list-projects:            Output a list of all projects that are stored in ~/development/source"
+  echo "  -w | --working-project:          Set a default working project to use it with other md commands like: 'md del camunda'"
+  echo "       --help:                     Show help"
   echo ""
   echo "Usage:"
   echo "  md config [Options]"
@@ -56,11 +73,14 @@ function executeDefaults() {
   command="$2" # second layer
 
   case $command in
+      --current-working-project|-c)
+          showCurrentWorkingProject
+          ;;
       --list-projects|-l)
           listProjects
           ;;
       --working-project|-w)
-          workingProject
+          changeWorkingProject
           ;;
       --help)
           help

@@ -44,15 +44,15 @@ function runInstallation() {
 # Add a md config file to the home folder with the default values
 #
 function createMdConfigFile() {
-  printf "working-dir=\n" > ~/.md
+  printf "working-project=\n" > ~/.md
   printf "source-dir=~/development/source\n" >> ~/.md
-  echo "create config file"
+  printf "\ncreate config file\n\n"
 }
 
 # Check if the md config file is already installed.
 #
 function addMdConfigFile() {
-  if grep -iq md/md.sh ~/.bashrc; then
+  if cat ~/.md > /dev/null; then
     read -p "The config file is already present, do you want to override it? " yn
     case $yn in
         [Yy]* ) printf "Overriding the md config file." && createMdConfigFile && exit;;
@@ -62,4 +62,5 @@ function addMdConfigFile() {
   fi
 }
 
+#addMdConfigFile
 runInstallation

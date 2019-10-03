@@ -17,10 +17,10 @@ function listWorkingProjectModules() {
 function generateAllModules() {
   echo "Generate all modules from your current working-project and git flow branch: ${currentBranch}"
   echo ""
-  pushd ${sourceDir}/${workingProject}*$var*
+  pushd ${sourceDir}/${workingProject} > /dev/null
   eval $(minikube docker-env)
   mvn clean install -DskipTests
-  popd
+  popd > /dev/null
 }
 
 function generateModules() {

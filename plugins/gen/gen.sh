@@ -26,7 +26,6 @@ function generateAllModules() {
 function generateModules() {
   echo "Generate modules of your current working-project and git flow branch: ${currentBranch}."
 
-  echo $@
   ls ${sourceDir}/${workingProject} | grep -vE "@234##|pom.xml|*.md|target" | while read -r line ; do
 
       ## iteriere über jedes modul
@@ -38,7 +37,7 @@ function generateModules() {
            *"$modules"*)
               echo ""
               echo "Generate module: $line"
-              pushd ${sourceDir}/${workingProject}*$var* > /dev/null
+              pushd ${sourceDir}/${workingProject}/*$modules* > /dev/null
               eval $(minikube docker-env)
               mvn clean install -DskipTests
               popd > /dev/null

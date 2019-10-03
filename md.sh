@@ -19,12 +19,18 @@ function helpme () {
     echo -e ""
     echo -e "${SUBTITLE}md framework help ${CLEAN}"
     echo -e ""
-    echo -e "${SUBTITLE}Usage:${CLEAN}  ${COMMAND}md <Command>${CLEAN}"
-    echo -e ""
     echo -e "${SUBTITLE}General commands${CLEAN}"
     echo -e ""
     echo -e "        ${COMMAND}version${CLEAN}       Show the version"
     echo -e "        ${COMMAND}help${CLEAN}          Show the help"
+    echo -e ""
+    echo -e "${SUBTITLE}Core functions${CLEAN}"
+    echo -e ""
+
+    ### CORE FUNCTIONS
+    for core in "${core[@]}"; do
+    echo -e "        ${COMMAND}$core${CLEAN}"
+    done
     echo -e ""
     echo -e "${SUBTITLE}Available plugins${CLEAN}"
     echo -e ""
@@ -33,7 +39,7 @@ function helpme () {
     for plugin in "${plugins[@]}"; do
     echo -e "        ${COMMAND}$plugin${CLEAN}"
     done
-    echo ""
+    echo -e ""
 }
 
 
@@ -55,6 +61,22 @@ function version() {
   printf "maintainer: marcantoine.bruelhart@gmail.com\n"
   printf "\n"
 }
+
+###
+# Check if one of the core script has to be executed and execute it.
+
+function executeCorePlugin() {
+  ## gather installed core scripts
+  core=($(ls ${installDir}/core/))
+
+  for elem in "${core[@]}"; do
+    if [ "$elem" = "$1" ]; then
+      bash "${installDir}/core/${elem}/${elem}.sh" "$@"
+      exit
+    fi
+  done
+}
+
 
 ###
 # Check if one of the installed plugin has to be executed and execute it.
@@ -93,6 +115,7 @@ function executeDefaults() {
   esac
 }
 
+executeCorePlugin "$@"
 executePlugin "$@"
 executeDefaults "$@"
 

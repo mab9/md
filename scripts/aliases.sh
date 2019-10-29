@@ -24,7 +24,7 @@ function svv-kubectl-google-cloud-config { ##    - configurate the google cloud 
 }
 
 
-alias mcis"mvn clean install -DskipTests"
+alias mcis="mvn clean install -DskipTests"
 
 alias del-cluster="bash ./delete-cluster.sh"
 #alias del-cluster="bash $SVV_SCRIPTS/delete-cluster.sh"
@@ -49,13 +49,15 @@ function show-helm-template() { ##               - show generated helm template
 }
 
 # set minikube docker env, minikube has to be started to set the docker env.
-alias set-dockerenv="eval $(minikube docker-env)"
-
+function set-dockerenv() {
+  bash eval $(minikube docker-env)
+}
 
 # change the Java version
 alias change-java="sudo update-alternatives --config java"
-}
+
 
 function lslv() { ##                             - Show SVV local values
   cat $SVV_PROJECT/statistikserver-deployment/docker/helm/statistikserver/local-values.yaml
 }
+

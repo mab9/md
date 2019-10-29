@@ -21,4 +21,4 @@ helm dep build
 helm install . --name statserver --values local-values.yaml
 echo "Start pod deployments"
 
-bash $SVV_SCRIPTS/runningPods.sh
+bash ./runningPods.sh

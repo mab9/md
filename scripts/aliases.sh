@@ -26,20 +26,20 @@ function svv-kubectl-google-cloud-config { ##    - configurate the google cloud 
 
 alias mcis="mvn clean install -DskipTests"
 
-alias del-cluster="bash ./delete-cluster.sh"
+alias del-cluster="bash $SVV_SCRIPTS/delete-cluster.sh"
 #alias del-cluster="bash $SVV_SCRIPTS/delete-cluster.sh"
 
-alias inst-cluster="bash ./install-cluster.sh"
-alias h-start="./helm-start.sh"
-alias h-upgrade="./helm-upgrade.sh"
-alias m-start="./minikube-start.sh"
+alias inst-cluster="bash $SVV_SCRIPTS/install-cluster.sh"
+alias h-start="bash $SVV_SCRIPTS/helm-start.sh"
+alias h-upgrade="bash $SVV_SCRIPTS/helm-upgrade.sh"
+alias m-start="bash $SVV_SCRIPTS/minikube-start.sh"
 alias m-stop="minikube stop"
 
 #deploy builded svv frontend into kubernets
-alias dep-frontend="./deploy-frontend-v1.sh"
+alias dep-frontend="bash $SVV_SCRIPTS/deploy-frontend-v1.sh"
 
 #status about the currently deploying pods in kubectl
-alias pod-states="./runningPods.sh"
+alias pod-states="bash $SVV_SCRIPTS/runningPods.sh"
 
 
 function show-helm-template() { ##               - show generated helm template

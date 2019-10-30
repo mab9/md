@@ -39,7 +39,7 @@ alias m-stop="minikube stop"
 alias dep-frontend="bash $SVV_SCRIPTS/deploy-frontend-v1.sh"
 
 #status about the currently deploying pods in kubectl
-alias pod-states="bash $SVV_SCRIPTS/runningPods.sh"
+alias pod-states="bash $SVV_SCRIPTS/show-pod-deployment-states"
 
 
 function show-helm-template() { ##               - show generated helm template

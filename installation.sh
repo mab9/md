@@ -1,14 +1,17 @@
 
-MD_INSTALLATION_FOLDER="${HOME}/development/source/md/md.sh"
-#MD_INSTALLATION_FOLDER="${HOME}/development/apps/md/md.sh"
+MD_INSTALLATION_FOLDER="${HOME}/development/source/md"
 
-# Check if the user has bashrc file for the installation and
-# enter an function to the bashrc file that calls the md.sh script.
-# Finally reload the bashrc file.
+
+# - check if the user has a bashrc file for the installation
+# - add a function to the bashrc file that calls the md.sh script
+# - register some alias functions.
+# - add a md config file to the user home folder
+# - finally reload the bashrc file.
 #
 function installMd() {
   if test -f ~/.bashrc; then
-    printf "\n# MD Framework \nfunction md() {\n\t %s \$@ \n}\n" "${MD_INSTALLATION_FOLDER}" >> ~/.bashrc
+    printf "\n#############\n# MD Framework \nfunction md() {\n\t %s \$@ \n}\n" "${MD_INSTALLATION_FOLDER}/md.sh" >> ~/.bashrc
+    printf "\n\nsource ${MD_INSTALLATION_FOLDER}/scripts/aliases.sh" >> ~/.bashrc
     chmod 755 ${MD_INSTALLATION_FOLDER}
     source ${HOME}/.bashrc
     addMdConfigFile
@@ -32,7 +35,7 @@ function runInstallation() {
     validateThatMdIsNotInstalled
 
     while true; do
-      read -p "Do you wish to install this programm by adding a function to your bashrc file? " yn
+      read -p "Do you wish to install this programm by extending your .bashrc file? " yn
       case $yn in
           [Yy]* ) printf "Install the md framework\n\n" && installMd && exit;;
           [Nn]* ) printf "You will have to install the md framework by your own.\n\n" && exit;;
@@ -43,7 +46,7 @@ function runInstallation() {
 
 # Add a md config file to the home folder with the default values
 #
-function createMdConfigFile() {
+function createAndSourceMdConfigFile() {
   printf "working-project=\n" > ~/.md
   printf "source-dir=~/development/source\n" >> ~/.md
   printf "\ncreate config file\n\n"
@@ -55,7 +58,7 @@ function addMdConfigFile() {
   if [ ! -f ~/.md ]; then
     read -p "The config file is already present, do you want to override it? " yn
     case $yn in
-        [Yy]* ) printf "Overriding the md config file." && createMdConfigFile && exit;;
+        [Yy]* ) printf "Overriding the md config file." && createAndSourceMdConfigFile && exit;;
         [Nn]* ) printf "Reusing the config file.\n\n" && exit;;
         * ) printf "Please answer yes or no.\n";;
     esac
@@ -63,4 +66,4 @@ function addMdConfigFile() {
 }
 
 addMdConfigFile
-#runInstallation
+runInstallation

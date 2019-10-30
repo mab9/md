@@ -6,6 +6,7 @@ MD_INSTALLATION_FOLDER="${HOME}/development/source/md"
 # - add a function to the bashrc file that calls the md.sh script
 # - register some alias functions.
 # - add a md config file to the user home folder
+# - add some exports to the bashr ( some project paths )   todo exprot svv_scripts... impl with read
 # - finally reload the bashrc file.
 #
 function installMd() {

@@ -1,5 +1,8 @@
 
 
+# todo make dynamic local values check...
+
+
 start=`date +%s`
 
 while

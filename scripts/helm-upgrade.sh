@@ -1,3 +1,5 @@
+# todo generic paths
+
 cd ~/development/source/svvstatistikserver/statistikserver-deployment/docker/helm/statistikserver
 
 helm upgrade statserver . --values local-values.yaml > /dev/null

@@ -9,6 +9,8 @@ helm init --service-account tiller
 minikube addons enable ingress
 
 
+## todo make pahts generic, and mount auto?
+
 minikubeip=`minikube ip`
 if [[ $minikubeip == *"192.168.99.100"* ]]; then
   echo -e "Minikube IP $minikubeip has not changed. Mount the storage with the command:\nminikube mount ~/statistikserver:/documentstorage"

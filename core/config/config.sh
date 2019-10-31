@@ -23,7 +23,7 @@ function listProjects() {
 }
 
 function changeWorkingProject() {
-  projects=( $(ls ~/development/source | grep -v @#@) ) # Einschränkung -> kein Projekt darf @#@ im Namen beinhalten!
+  projects=( $(ls ${sourceDir} | grep -v @#@) ) # Einschränkung -> kein Projekt darf @#@ im Namen beinhalten!
   projects+=(exit)
 
   select project in "${projects[@]}"; do

@@ -77,9 +77,6 @@ function executePlugin() {
   done
 }
 
-###
-# Execute one of the default functions
-
 function executeDefaults() {
   command="$1" # first layer
 

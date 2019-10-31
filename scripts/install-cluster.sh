@@ -16,5 +16,8 @@ if [[ $minikubeip == *"192.168.99.100"* ]]; then
   echo -e "Minikube IP $minikubeip has not changed. Mount the storage with the command:\nminikube mount ~/statistikserver:/documentstorage"
 
 else
-   echo -e "Minikube IP  has changed. Use $minikubeip IP  in \n/home/mab/development/source/svvstatistikserver/statistikserver-deployment/docker/helm/statistikserver/local-values.yaml \n /etc/hosts"
+   mdConfigFile=/home/mab/.md
+   workingProject=$(cat $mdConfigFile | grep -i working-project | cut -d "=" -f 2)
+   sourceDir=$(cat $mdConfigFile | grep -i source-dir | cut -d "=" -f 2)
+   echo -e "Minikube IP  has changed. Use $minikubeip IP  in \n${sourceDir}/${workingProject}/statistikserver-deployment/docker/helm/statistikserver/local-values.yaml \n /etc/hosts"
 fi

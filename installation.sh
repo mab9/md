@@ -66,5 +66,8 @@ function addMdConfigFile() {
   fi
 }
 
+
+# todo export vars / make them dynamic... $SVV_PROJECT $SVV_SCRIPTS
+
 addMdConfigFile
 runInstallation

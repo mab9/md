@@ -1,6 +1,9 @@
-# todo generic paths
 
-cd ~/development/source/svvstatistikserver/statistikserver-deployment/docker/helm/statistikserver
+mdConfigFile=/home/mab/.md
+workingProject=$(cat $mdConfigFile | grep -i working-project | cut -d "=" -f 2)
+sourceDir=$(cat $mdConfigFile | grep -i source-dir | cut -d "=" -f 2)
+
+cd ~${sourceDir}/${workingProject}/statistikserver-deployment/docker/helm/statistikserver
 
 helm upgrade statserver . --values local-values.yaml > /dev/null
 kubectl get pods

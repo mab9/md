@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 # start lunatic mail server
 alias start-lunatic="java -jar /home/mab/development/apps/LunaticSMTP-v0.3.0.jar &"
 
@@ -60,4 +59,3 @@ alias change-java="sudo update-alternatives --config java"
 function lslv() { ##                             - Show SVV local values
   cat $SVV_PROJECT/statistikserver-deployment/docker/helm/statistikserver/local-values.yaml
 }
-

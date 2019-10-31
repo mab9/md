@@ -1,9 +1,7 @@
 
-
-# todo make dynamic local values check...
-
-
-start=`date +%s`
+mdConfigFile=/home/mab/.md
+workingProject=$(cat $mdConfigFile | grep -i working-project | cut -d "=" -f 2)
+sourceDir=$(cat $mdConfigFile | grep -i source-dir | cut -d "=" -f 2)start=`date +%s`
 
 while
     runningPods=$(kubectl get pods | grep -i "1/1     Running" | wc -l)
@@ -20,7 +18,7 @@ do
         echo ""
         echo "Error Error Error Error Error Error Error Error Error Error Error"
         echo ""
-        echo "`cat $SVV_PROJECT/statistikserver-deployment/docker/helm/statistikserver/local-values.yaml | grep imagetag`"
+        echo "`cat ${sourceDir}/${workingProject}/statistikserver-deployment/docker/helm/statistikserver/local-values.yaml | grep imagetag`"
         echo ""
         echo "`minikube ssh 'docker images'`"
         sleep 6
@@ -36,6 +34,6 @@ if [ ! -z "$error" -a "$error" != " " ]; then
   echo "$runningPods pods are up and running, execute time $runtime seconds. Using images from master."
 else
   echo "$runningPods pods are up and running, execute time $runtime seconds. Using images from master and overwriting:"
-  runningImages=$(cat ~/development/source/svvstatistikserver/statistikserver-deployment/docker/helm/statistikserver/local-values.yaml | grep -i image)
+  runningImages=$(cat ${sourceDir}/${workingProject}/statistikserver-deployment/docker/helm/statistikserver/local-values.yaml | grep -i image)
   echo "$runningImages"
 fi

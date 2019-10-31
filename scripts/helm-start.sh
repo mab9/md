@@ -1,5 +1,9 @@
 
-cd ~/development/source/svvstatistikserver/statistikserver-deployment/docker/helm/statistikserver/
+mdConfigFile=/home/mab/.md
+workingProject=$(cat $mdConfigFile | grep -i working-project | cut -d "=" -f 2)
+sourceDir=$(cat $mdConfigFile | grep -i source-dir | cut -d "=" -f 2)
+
+cd ${sourceDir}/${workingProject}/statistikserver-deployment/docker/helm/statistikserver/
 
 rm requirements.lock
 helm del --purge statserver

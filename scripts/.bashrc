@@ -12,7 +12,7 @@ function use-dab-settings () { ##                - set dabbawala mvn settings as
 }
 
 function start-lunatic () { ##                   - start mail server lunatic
-  java -jar /home/mab/development/apps/LunaticSMTP-v0.3.0.jar &
+  java -jar ${HOME}development/apps/LunaticSMTP-v0.3.0.jar &
 }
 
 function go-to-svv-src () { ##                   - cd to source svvstatistikserver

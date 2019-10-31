@@ -1,14 +1,14 @@
 #!/bin/bash
 
 
-mdConfigFile=/home/mab/.md
+mdConfigFile=${HOME}.md
 workingProject=$(cat $mdConfigFile | grep -i working-project | cut -d "=" -f 2)
 sourceDir=$(cat $mdConfigFile | grep -i source-dir | cut -d "=" -f 2)
 
 MD_SCRIPTS=${MD_INSTALLATION_FOLDER}/scripts
 
 # start lunatic mail server
-alias start-lunatic="java -jar /home/mab/development/apps/LunaticSMTP-v0.3.0.jar &" # todo add it into startup script
+alias start-lunatic="java -jar ${HOME}development/apps/LunaticSMTP-v0.3.0.jar &" # todo add it into startup script
 
 alias go-to-svv-src="cd ${sourceDir}/svvstatistikserver"
 alias go-to-dab-src="cd ${sourceDir}/source/dabbawala"

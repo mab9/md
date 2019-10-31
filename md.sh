@@ -42,20 +42,6 @@ function helpme () {
     echo -e ""
 }
 
-
-##
-# Ideas
-
-# add plugins, everyone can create theyr own plugin in bash or python or java?
-# load plugins that are in a folder and list them
-
-# create scripts for repeated tasks
-# easy share of those scripts
-# easy installation of plugins in different script or programming languages
-# description of those plugins and how to install and how to use the framework
-
-###############
-
 function version() {
   printf "md version ${VERSION}\n"
   printf "maintainer: marcantoine.bruelhart@gmail.com\n"
@@ -116,11 +102,3 @@ executeCorePlugin "$@"
 executePlugin "$@"
 executeDefaults "$@"
 
-## best practices
-## https://codeburst.io/13-tips-tricks-for-writing-shell-scripts-with-awesome-ux-19a525ae05ae
-
-
-# Konvention
-# plugins werden in einem Ordner abgelegt.
-# der Ordner enthält ein bash Script mit dem selben namen des Ordners
-# das Script enthält eine execute Funktion, das Plugin ruft sich am Ende des Skripts selbst auf

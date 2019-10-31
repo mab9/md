@@ -5,13 +5,19 @@ mdConfigFile=${HOME}/.md
 workingProject=$(cat $mdConfigFile | grep -i working-project | cut -d "=" -f 2)
 sourceDir=$(cat $mdConfigFile | grep -i source-dir | cut -d "=" -f 2)
 
+
+export MD_INSTALLATION_FOLDER="${HOME}/development/source/md"
 MD_SCRIPTS=${MD_INSTALLATION_FOLDER}/scripts
+
+function md() {
+  ${MD_INSTALLATION_FOLDER}/md.sh $@
+}
 
 # start lunatic mail server
 alias start-lunatic="java -jar ${HOME}development/apps/LunaticSMTP-v0.3.0.jar &" # todo add it into startup script
 
 alias goto-svv-src="cd ${sourceDir}/svvstatistikserver"
-alias goto-dab-src="cd ${sourceDir}/source/dabbawala"
+alias goto-dab-src="cd ${sourceDir}/dabbawala"
 alias goto-md-src="cd ${MD_INSTALLATION_FOLDER}"
 
 # describe pods, example: desc-pod core-0

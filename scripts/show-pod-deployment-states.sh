@@ -5,7 +5,7 @@ sourceDir=$(cat $mdConfigFile | grep -i source-dir | cut -d "=" -f 2)start=`date
 
 while
     runningPods=$(kubectl get pods | grep -i "1/1     Running" | wc -l)
-    (( $runningPods < 7 ))
+    (( $runningPods < 7 )) # 7 = number of pods to start for default svv config...
 do
     clear
     echo "Running pods: $runningPods/7"
@@ -20,7 +20,7 @@ do
         echo ""
         echo "`cat ${sourceDir}/${workingProject}/statistikserver-deployment/docker/helm/statistikserver/local-values.yaml | grep imagetag`"
         echo ""
-        echo "`minikube ssh 'docker images'`"
+        echo "`minikube ssh 'docker images | head -n 20'`"
         sleep 6
     fi
     sleep 3

@@ -8,15 +8,16 @@ sourceDir=$(cat $mdConfigFile | grep -i source-dir | cut -d "=" -f 2)
 SVV_SCRIPTS=${MD_INSTALLATION_FOLDER}/scripts
 
 # start lunatic mail server
-alias start-lunatic="java -jar /home/mab/development/apps/LunaticSMTP-v0.3.0.jar &"
+alias start-lunatic="java -jar /home/mab/development/apps/LunaticSMTP-v0.3.0.jar &" # todo add it into startup script
 
 alias go-to-svv-src="cd ${sourceDir}/svvstatistikserver"
 alias go-to-dab-src="cd ${sourceDir}/source/dabbawala"
 alias go-to-md-src="cd ${MD_INSTALLATION_FOLDER}"
 
 
-# example desc-pod core-0
+# describe pods, example: desc-pod core-0
 alias desc-pod="kubectl describe pods"
+# list pods
 alias lsp="kubectl get pods"
 
 
@@ -32,7 +33,7 @@ function svv-kubectl-google-cloud-config { ##    - configurate the google cloud 
 
 # uses the default settings.xml ... the one chosed with mvn_change_setting
 alias mcis="mvn clean install -DskipTests"
-alias del-cluster="bash $SVV_SCRIPTS/delete-cluster.sh"
+alias del-cluster="bash $SVV_SCRIPTS/delete-cluster.sh"      # todo add to md del ?
 alias inst-cluster="bash $SVV_SCRIPTS/install-cluster.sh"
 alias h-start="bash $SVV_SCRIPTS/helm-start.sh"
 alias h-upgrade="bash $SVV_SCRIPTS/helm-upgrade.sh"
@@ -52,7 +53,7 @@ function show-helm-template() {
   popd
 }
 
-# set minikube docker env, minikube has to be started to set the docker env.
+# set minikube docker env to the bash, minikube has to be started to set the docker env.
 function set-dockerenv() {
   bash eval $(minikube docker-env)
 }
@@ -60,6 +61,7 @@ function set-dockerenv() {
 # change the Java version
 alias change-javav="sudo update-alternatives --config java"
 
+# list local values
 function lslv() {
   cat ${sourceDir}/${workingProject}/statistikserver-deployment/docker/helm/statistikserver/local-values.yaml
 }

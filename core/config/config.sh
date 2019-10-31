@@ -20,7 +20,8 @@ function showCurrentWorkingProject() {
 function listProjects() {
   echo "Projects from the folder ${sourceDir}:"
   echo ""
-  ls ${sourceDir} | grep -v @#@
+  cmdToListProjects="ls ${sourceDir} | grep -v @#@"
+  eval $cmdToListProjects
 }
 
 function changeWorkingProject() {

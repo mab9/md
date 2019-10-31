@@ -1,5 +1,5 @@
 
-mdConfigFile=${HOME}.md
+mdConfigFile=${HOME}/.md
 workingProject=$(cat $mdConfigFile | grep -i working-project | cut -d "=" -f 2)
 sourceDir=$(cat $mdConfigFile | grep -i source-dir | cut -d "=" -f 2)
 

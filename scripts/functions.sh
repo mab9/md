@@ -40,9 +40,6 @@ alias h-upgrade="bash $MD_SCRIPTS/helm-upgrade.sh"
 alias m-start="bash $MD_SCRIPTS/minikube-start.sh"
 alias m-stop="minikube stop"
 
-#deploy builded svv frontend into kubernets
-alias dep-frontend="bash $MD_SCRIPTS/deploy-frontend-v1.sh"
-
 #status about the currently deploying pods in kubectl
 alias pod-states="bash $MD_SCRIPTS/show-pod-deployment-states.sh"
 

@@ -7,5 +7,5 @@
 
 # todo extend to list all md functionallity...
 
-SVV_SCRIPTS=${MD_INSTALLATION_FOLDER}/scripts
-cat $SVV_SCRIPTS/functions.sh
+MD_SCRIPTS=${MD_INSTALLATION_FOLDER}/scripts
+cat $MD_SCRIPTS/functions.sh

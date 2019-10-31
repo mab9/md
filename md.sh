@@ -51,8 +51,8 @@ function helpme () {
 
 # create scripts for repeated tasks
 # easy share of those scripts
-# easy installation of plugins in different languages
-# description of those plugins and how to install the framework
+# easy installation of plugins in different script or programming languages
+# description of those plugins and how to install and how to use the framework
 
 ###############
 
@@ -115,14 +115,6 @@ function executeDefaults() {
 executeCorePlugin "$@"
 executePlugin "$@"
 executeDefaults "$@"
-
-# find all plugins
-## read all .sh files
-## check if they contains the interfac method to call
-## check if they have the helper text
-## register plugins
-
-# create functions that registrate the md framework in the bashr
 
 ## best practices
 ## https://codeburst.io/13-tips-tricks-for-writing-shell-scripts-with-awesome-ux-19a525ae05ae

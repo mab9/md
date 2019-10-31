@@ -5,7 +5,7 @@ mdConfigFile=/home/mab/.md
 workingProject=$(cat $mdConfigFile | grep -i working-project | cut -d "=" -f 2)
 sourceDir=$(cat $mdConfigFile | grep -i source-dir | cut -d "=" -f 2)
 
-SVV_SCRIPTS=${MD_INSTALLATION_FOLDER}/scripts
+MD_SCRIPTS=${MD_INSTALLATION_FOLDER}/scripts
 
 # start lunatic mail server
 alias start-lunatic="java -jar /home/mab/development/apps/LunaticSMTP-v0.3.0.jar &" # todo add it into startup script
@@ -33,18 +33,18 @@ function svv-kubectl-google-cloud-config { ##    - configurate the google cloud 
 
 # uses the default settings.xml ... the one chosed with mvn_change_setting
 alias mcis="mvn clean install -DskipTests"
-alias del-cluster="bash $SVV_SCRIPTS/delete-cluster.sh"      # todo add to md del ?
-alias inst-cluster="bash $SVV_SCRIPTS/install-cluster.sh"
-alias h-start="bash $SVV_SCRIPTS/helm-start.sh"
-alias h-upgrade="bash $SVV_SCRIPTS/helm-upgrade.sh"
-alias m-start="bash $SVV_SCRIPTS/minikube-start.sh"
+alias del-cluster="bash $MD_SCRIPTS/delete-cluster.sh"      # todo add to md del ?
+alias inst-cluster="bash $MD_SCRIPTS/install-cluster.sh"
+alias h-start="bash $MD_SCRIPTS/helm-start.sh"
+alias h-upgrade="bash $MD_SCRIPTS/helm-upgrade.sh"
+alias m-start="bash $MD_SCRIPTS/minikube-start.sh"
 alias m-stop="minikube stop"
 
 #deploy builded svv frontend into kubernets
-alias dep-frontend="bash $SVV_SCRIPTS/deploy-frontend-v1.sh"
+alias dep-frontend="bash $MD_SCRIPTS/deploy-frontend-v1.sh"
 
 #status about the currently deploying pods in kubectl
-alias pod-states="bash $SVV_SCRIPTS/show-pod-deployment-states.sh"
+alias pod-states="bash $MD_SCRIPTS/show-pod-deployment-states.sh"
 
 
 function show-helm-template() {

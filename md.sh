@@ -13,7 +13,8 @@ COMMAND="\e[94m"
 #COMMAND="\e[32m"
 CLEAN="\e[0m"
 
-installDir=/home/mab/development/source/md/
+
+MD_SCRIPTS=${MD_INSTALLATION_FOLDER}/scripts
 
 function helpme () {
     echo -e ""
@@ -53,11 +54,11 @@ function version() {
 
 function executeCorePlugin() {
   ## gather installed core scripts
-  core=($(ls ${installDir}/core/))
+  core=($(ls ${MD_SCRIPTS}/core/))
 
   for elem in "${core[@]}"; do
     if [ "$elem" = "$1" ]; then
-      bash "${installDir}/core/${elem}/${elem}.sh" "$@"
+      bash "${MD_SCRIPTS}/core/${elem}/${elem}.sh" "$@"
       exit
     fi
   done
@@ -69,11 +70,11 @@ function executeCorePlugin() {
 
 function executePlugin() {
   ## gather installed plugins
-  plugins=($(ls ${installDir}/plugins/))
+  plugins=($(ls ${MD_SCRIPTS}/plugins/))
 
   for elem in "${plugins[@]}"; do
     if [ "$elem" = "$1" ]; then
-      bash "${installDir}/plugins/${elem}/${elem}.sh" "$@"
+      bash "${MD_SCRIPTS}/plugins/${elem}/${elem}.sh" "$@"
       exit
     fi
   done

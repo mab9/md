@@ -25,4 +25,4 @@ helm dep build
 helm install . --name statserver --values local-values.yaml
 echo "Start pod deployments"
 
-bash ./show-pod-deployment-states
+bash ./show-pod-deployment-states.sh

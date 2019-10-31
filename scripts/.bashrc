@@ -59,7 +59,7 @@ function dep-frontend() { ##                     - deploy svv frontend into kube
 }
 
 function run-pods() { ##                         - status about the running pods in kubectl
-  bash $SVV_SCRIPTS/show-pod-deployment-states
+  bash $SVV_SCRIPTS/show-pod-deployment-states.sh
 }
 
 function show-helm-template() { ##               - show generated helm template
@@ -102,7 +102,7 @@ function del-pods() { ##                         - force delete kubernetes pods 
   do
       kubectl delete po "$var" --force --grace-period=0
   done
-  bash $SVV_SCRIPTS/show-pod-deployment-states
+  bash $SVV_SCRIPTS/show-pod-deployment-states.sh
 }
 
 function desc-pods() { ##                        - Describe commands with verbose outputs - provide pod name as argument

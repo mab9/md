@@ -10,16 +10,15 @@ MD_SCRIPTS=${MD_INSTALLATION_FOLDER}/scripts
 # start lunatic mail server
 alias start-lunatic="java -jar ${HOME}development/apps/LunaticSMTP-v0.3.0.jar &" # todo add it into startup script
 
-alias go-to-svv-src="cd ${sourceDir}/svvstatistikserver"
-alias go-to-dab-src="cd ${sourceDir}/source/dabbawala"
-alias go-to-md-src="cd ${MD_INSTALLATION_FOLDER}"
-
+alias goto-svv-src="cd ${sourceDir}/svvstatistikserver"
+alias goto-dab-src="cd ${sourceDir}/source/dabbawala"
+alias goto-md-src="cd ${MD_INSTALLATION_FOLDER}"
 
 # describe pods, example: desc-pod core-0
 alias desc-pod="kubectl describe pods"
+
 # list pods
 alias lsp="kubectl get pods"
-
 
 function svv-kubectl-google-cloud-config { ##    - configurate the google cloud auth  for the svv project
   gcloud config set project bedag-svv

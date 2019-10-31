@@ -2,10 +2,9 @@
 
 # skript könnte erweitert werden mit noise to > /dev/null 2>&1  und mit einem start parameter wo alles geloggt wird.
 
-mdConfigFile=${HOME}.md
+mdConfigFile=${HOME}/.md
 workingProject=$(cat $mdConfigFile | grep -i working-project | cut -d "=" -f 2)
 sourceDir=$(cat $mdConfigFile | grep -i source-dir | cut -d "=" -f 2)
-
 
 eval $(minikube docker-env)
 cd ${sourceDir}/${workingProject}/statistikserver-frontend

@@ -13,9 +13,6 @@ COMMAND="\e[94m"
 #COMMAND="\e[32m"
 CLEAN="\e[0m"
 
-
-MD_SCRIPTS=${MD_INSTALLATION_FOLDER}/scripts
-
 function helpme () {
     echo -e ""
     echo -e "${SUBTITLE}md framework help ${CLEAN}"
@@ -54,11 +51,11 @@ function version() {
 
 function executeCorePlugin() {
   ## gather installed core scripts
-  core=($(ls ${MD_SCRIPTS}/core/))
+  core=($(ls ${MD_INSTALLATION_FOLDER}/core/))
 
   for elem in "${core[@]}"; do
     if [ "$elem" = "$1" ]; then
-      bash "${MD_SCRIPTS}/core/${elem}/${elem}.sh" "$@"
+      bash "${MD_INSTALLATION_FOLDER}/core/${elem}/${elem}.sh" "$@"
       exit
     fi
   done
@@ -70,11 +67,11 @@ function executeCorePlugin() {
 
 function executePlugin() {
   ## gather installed plugins
-  plugins=($(ls ${MD_SCRIPTS}/plugins/))
+  plugins=($(ls ${MD_INSTALLATION_FOLDER}/plugins/))
 
   for elem in "${plugins[@]}"; do
     if [ "$elem" = "$1" ]; then
-      bash "${MD_SCRIPTS}/plugins/${elem}/${elem}.sh" "$@"
+      bash "${MD_INSTALLATION_FOLDER}/plugins/${elem}/${elem}.sh" "$@"
       exit
     fi
   done

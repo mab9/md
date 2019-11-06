@@ -1,5 +1,7 @@
 #!/bin/bash
 
+MD_SCRIPTS=${MD_INSTALLATION_FOLDER}/scripts
+
 function listPods() {
   kubectl get pods
   echo ""
@@ -14,7 +16,7 @@ function deleteAll() {
       kubectl delete po "$line" --force --grace-period=0
       echo "Pod: $line was deleted."
   done
-  bash $SVV_SCRIPTS/runningPods.sh
+  bash $MD_SCRIPTS/show-pod-deployment-states.sh
 }
 
 
@@ -50,10 +52,10 @@ function deletePod() {
 
   echo $cnt ## change the scope of the variable inside the loops...
 
-  bash $SVV_SCRIPTS/runningPods.sh
+  bash $MD_SCRIPTS/show-pod-deployment-states.sh
   #if [ "$cnt" -gt "0" ]; then
   #   echo "hejo"
-  #   bash $SVV_SCRIPTS/runningPods.sh
+  #   bash $MD_SCRIPTS/show-pod-deployment-states.sh
   #fi
   #else
   #  echo ""

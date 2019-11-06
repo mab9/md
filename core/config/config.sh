@@ -3,11 +3,12 @@
 #echo config plugin
 #echo @
 
-mdConfigFile=/home/mab/.md
-workingProject=$(cat $mdConfigFile | grep -i working-project | cut -d "=" -f 2)
+mdConfigFile=${HOME}/.md
 sourceDir=$(cat $mdConfigFile | grep -i source-dir | cut -d "=" -f 2)
 
 function showCurrentWorkingProject() {
+    workingProject=$(cat $mdConfigFile | grep -i working-project | cut -d "=" -f 2)
+
     if [ -z "${workingProject}" ]; then  # n is the default and checks wether a value is here or not. z does the oposit
       printf "You have no working-project configured!\n"
       printf "To configure the working-project use the following command: \nmd config -w\n\n"
@@ -19,11 +20,13 @@ function showCurrentWorkingProject() {
 function listProjects() {
   echo "Projects from the folder ${sourceDir}:"
   echo ""
-  ls ${sourceDir} | grep -v @#@
+  cmdToListProjects="ls ${sourceDir} | grep -v @#@"
+  eval $cmdToListProjects
 }
 
 function changeWorkingProject() {
-  projects=( $(ls ~/development/source | grep -v @#@) ) # Einschränkung -> kein Projekt darf @#@ im Namen beinhalten!
+  cmdToListProjects="ls ${sourceDir} | grep -v @#@"
+  projects=( `eval $cmdToListProjects` ) # Einschränkung -> kein Projekt darf @#@ im Namen beinhalten!
   projects+=(exit)
 
   select project in "${projects[@]}"; do

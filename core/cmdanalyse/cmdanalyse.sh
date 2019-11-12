@@ -1,4 +1,6 @@
+#!/bin/bash
 
-historyFile=~/.bash_history
-cat $historyFile | awk 'BEGIN {FS="[ \t]+|\\|"} {print $3}' | sort | uniq -c | sort -nr | head -n 15
+HISTFILE=~/.bash_history
+set -o history
+history | awk 'BEGIN {FS="[ \t]+|\\|"} {print $3}' | sort | uniq -c | sort -nr | head -n 20
 

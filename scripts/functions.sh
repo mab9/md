@@ -19,6 +19,7 @@ alias start-lunatic="java -jar ${HOME}development/apps/LunaticSMTP-v0.3.0.jar &"
 alias goto-svv-src="cd ${sourceDir}/svvstatistikserver"
 alias goto-dab-src="cd ${sourceDir}/dabbawala"
 alias goto-md-src="cd ${MD_INSTALLATION_FOLDER}"
+alias goto-cs-src="cd ${sourceDir}/cheatsheets"
 
 # describe pods, example: desc-pod core-0
 alias desc-pod="kubectl describe pods"

@@ -16,7 +16,7 @@ function deleteAll() {
       kubectl delete po "$line" --force --grace-period=0
       echo "Pod: $line was deleted."
   done
-  bash $MD_SCRIPTS/show-pod-deployment-states.sh
+  #bash $MD_SCRIPTS/show-pod-deployment-states.sh
 }
 
 
@@ -52,7 +52,7 @@ function deletePod() {
 
   echo $cnt ## change the scope of the variable inside the loops...
 
-  bash $MD_SCRIPTS/show-pod-deployment-states.sh
+  #bash $MD_SCRIPTS/show-pod-deployment-states.sh
   #if [ "$cnt" -gt "0" ]; then
   #   echo "hejo"
   #   bash $MD_SCRIPTS/show-pod-deployment-states.sh

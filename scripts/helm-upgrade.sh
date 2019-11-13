@@ -8,4 +8,4 @@ tmp="cd ${sourceDir}/${workingProject}/statistikserver-deployment/docker/helm/st
 eval $tmp
 
 helm upgrade statserver . --values local-values.yaml > /dev/null
-bash $MD_SCRIPTS/show-pod-deployment-states.sh
+#bash $MD_SCRIPTS/show-pod-deployment-states.sh

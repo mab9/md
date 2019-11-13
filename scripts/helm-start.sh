@@ -26,4 +26,4 @@ done
 
 helm dep build
 helm install . --name statserver --values local-values.yaml
-bash $MD_SCRIPTS/show-pod-deployment-states.sh
+#bash $MD_SCRIPTS/show-pod-deployment-states.sh

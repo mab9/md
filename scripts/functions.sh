@@ -14,7 +14,7 @@ function md() {
 }
 
 # start lunatic mail server
-alias start-lunatic="java -jar ${HOME}development/apps/LunaticSMTP-v0.3.0.jar &" # todo add it into startup script
+alias start-lunatic="java -jar ${HOME}/development/apps/LunaticSMTP-v0.3.0.jar &" # todo add it into startup script
 
 alias goto-svv-src="cd ${sourceDir}/svvstatistikserver"
 alias goto-dab-src="cd ${sourceDir}/dabbawala"
@@ -58,7 +58,7 @@ function show-helm-template() {
 
 # set minikube docker env to the bash, minikube has to be started to set the docker env.
 function set-dockerenv() {
-  bash eval $(minikube docker-env)
+  eval $(minikube docker-env)
 }
 
 # change the Java version

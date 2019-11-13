@@ -5,7 +5,7 @@ sourceDir=$(cat $mdConfigFile | grep -i source-dir | cut -d "=" -f 2)
 MD_SCRIPTS=${MD_INSTALLATION_FOLDER}/scripts
 
 # todo make this generic
-cd ${sourceDir}/${workingProject}/statistikserver-deployment/docker/helm/statistikserver/
+cd /home/mab/development/source/${workingProject}/statistikserver-deployment/docker/helm/statistikserver
 
 rm requirements.lock
 helm del --purge statserver
@@ -26,4 +26,4 @@ done
 helm dep build
 helm install . --name statserver --values local-values.yaml
 
-bash $MD_SCRIPTS/show-pod-deployment-states.sh
+#bash $MD_SCRIPTS/show-pod-deployment-states.sh

@@ -66,5 +66,6 @@ alias change-javav="sudo update-alternatives --config java"
 
 # list local values
 function lslv() {
-  cat ${sourceDir}/${workingProject}/statistikserver-deployment/docker/helm/statistikserver/local-values.yaml
+  tmp="cat ${sourceDir}/${workingProject}/statistikserver-deployment/docker/helm/statistikserver/local-values.yaml"
+  eval $tmp
 }

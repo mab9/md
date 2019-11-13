@@ -5,7 +5,8 @@ sourceDir=$(cat $mdConfigFile | grep -i source-dir | cut -d "=" -f 2)
 MD_SCRIPTS=${MD_INSTALLATION_FOLDER}/scripts
 
 # todo make this generic
-cd /home/mab/development/source/${workingProject}/statistikserver-deployment/docker/helm/statistikserver
+tmp=cd ${sourceDir}/${workingProject}/statistikserver-deployment/docker/helm/statistikserver
+eval $tmp
 
 rm requirements.lock
 helm del --purge statserver

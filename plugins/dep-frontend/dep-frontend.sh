@@ -10,7 +10,7 @@ sourceDir=$(cat $mdConfigFile | grep -i source-dir | cut -d "=" -f 2)
 
 
 eval $(minikube docker-env)
-tmp=cd ${sourceDir}/${workingProject}/statistikserver-frontend
+tmp="cd ${sourceDir}/${workingProject}/statistikserver-frontend"
 eval $tmp
 mvn clean install -DskipTests
 kubectl cp ${sourceDir}/svvstatistikserver/statistikserver-frontend/target/statistikserver-frontend-*.zip default/frontend-0:/app/plugin/statistikserver-frontend-plugin.zip

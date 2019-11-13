@@ -51,7 +51,8 @@ alias pod-states="bash $MD_SCRIPTS/show-pod-deployment-states.sh"
 
 
 function show-helm-template() {
-  pushd ${sourceDir}/${workingProject}/statistikserver-deployment/docker/helm/statistikserver
+  tmp="${sourceDir}/${workingProject}/statistikserver-deployment/docker/helm/statistikserver"
+  eval pushd $tmp
   helm template . --values local-values.yaml
   popd
 }

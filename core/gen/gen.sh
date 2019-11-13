@@ -11,13 +11,15 @@ sourceDir=$(cat $mdConfigFile | grep -i source-dir | cut -d "=" -f 2)
 function listWorkingProjectModules() {
   echo "Show all working-project: ${workingProject} modules:"
   echo ""
-  ls ${sourceDir}/${workingProject} | grep -v @234## # grep to have a list with new lines instead to print all on one row.
+  tmp="ls ${sourceDir}/${workingProject}"
+  eval $tmp | grep -v @234## # grep to have a list with new lines instead to print all on one row.
 }
 
 function generateAllModules() {
   echo "Generate all modules from your current working-project and git flow branch: ${currentBranch}"
   echo ""
-  pushd ${sourceDir}/${workingProject} > /dev/null
+  tmp="${sourceDir}/${workingProject}"
+  eval pushd $tmp > /dev/null
   eval $(minikube docker-env)
   mvn clean install -DskipTests
   popd > /dev/null
@@ -26,7 +28,8 @@ function generateAllModules() {
 function generateModules() {
   echo "Generate modules of your current working-project and git flow branch: ${currentBranch}."
 
-  ls ${sourceDir}/${workingProject} | grep -vE "@234##|pom.xml|*.md|target" | while read -r line ; do
+  tmp="ls ${sourceDir}/${workingProject}"
+  eval $tmp | grep -vE "@234##|pom.xml|*.md|target" | while read -r line ; do
 
       ## iteriere über jedes modul
       for modules in "$@"
@@ -37,7 +40,8 @@ function generateModules() {
            *"$modules"*)
               echo ""
               echo "Generate module: $line"
-              pushd ${sourceDir}/${workingProject}/*$modules* > /dev/null
+              tmp="${sourceDir}/${workingProject}/*$modules*"
+              eval pushd $tmp > /dev/null
               eval $(minikube docker-env)
               mvn clean install -DskipTests
               popd > /dev/null

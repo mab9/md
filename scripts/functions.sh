@@ -50,6 +50,8 @@ alias m-stop="minikube stop"
 #status about the currently deploying pods in kubectl
 alias pod-states="bash $MD_SCRIPTS/show-pod-deployment-states.sh"
 
+alias store-git-cred='sed -i '\''7 s/#//'\'' ~/.gitconfig'
+alias unstore-git-cred='sed -i '\''7 s/^/#/'\'' ~/.gitconfig'
 
 function show-helm-template() {
   tmp="${sourceDir}/${workingProject}/statistikserver-deployment/docker/helm/statistikserver"

@@ -43,6 +43,7 @@ alias del-cluster="bash $MD_SCRIPTS/delete-cluster.sh"      # todo add to md del
 alias inst-cluster="bash $MD_SCRIPTS/install-cluster.sh"
 alias h-start="bash $MD_SCRIPTS/helm-start.sh"
 alias h-upgrade="bash $MD_SCRIPTS/helm-upgrade.sh"
+alias h-dep-upgrade="bash $MD_SCRIPTS/helm-dep-upgrade.sh"
 alias m-start="bash $MD_SCRIPTS/minikube-start.sh"
 alias m-stop="minikube stop"
 

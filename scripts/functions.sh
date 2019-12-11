@@ -54,7 +54,7 @@ alias store-git-cred='sed -i '\''7 s/#//'\'' ~/.gitconfig'
 alias unstore-git-cred='sed -i '\''7 s/^/#/'\'' ~/.gitconfig'
 
 function show-helm-template() {
-  tmp="${sourceDir}/${workingProject}/statistikserver-deployment/docker/helm/statistikserver"
+  tmp="${sourceDir}/${workingProject}/${workingProject}-deployment/docker/helm/${workingProject}"
   eval pushd $tmp
   helm template . --values local-values.yaml
   popd
@@ -70,6 +70,6 @@ alias change-javav="sudo update-alternatives --config java"
 
 # list local values
 function lslv() {
-  tmp="cat ${sourceDir}/${workingProject}/statistikserver-deployment/docker/helm/statistikserver/local-values.yaml"
+  tmp="cat ${sourceDir}/${workingProject}/${workingProject}-deployment/docker/helm/${workingProject}/local-values.yaml"
   eval $tmp
 }

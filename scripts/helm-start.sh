@@ -5,7 +5,7 @@ sourceDir=$(cat $mdConfigFile | grep -i source-dir | cut -d "=" -f 2)
 MD_SCRIPTS=${MD_INSTALLATION_FOLDER}/scripts
 
 # todo make this generic
-tmp="cd ${sourceDir}/${workingProject}/${workingProject}-deployment/docker/helm/${workingProject}"
+tmp="cd ${sourceDir}/${workingProject}/statistikserver-deployment/docker/helm/statistikserver"
 eval $tmp
 
 rm requirements.lock

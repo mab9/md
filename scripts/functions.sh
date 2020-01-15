@@ -21,11 +21,7 @@ alias goto-dab-src="cd ${sourceDir}/dabbawala"
 alias goto-md-src="cd ${MD_INSTALLATION_FOLDER}"
 alias goto-cs-src="cd ${sourceDir}/cheatsheets"
 
-# describe pods, example: desc-pod core-0
-alias desc-pod="kubectl describe pods"
-
-# list pods
-alias lsp="kubectl get pods"
+alias start-mailhog="docker run -d -p 1025:1025 -p 8025:8025 mailhog/mailhog"
 
 function svv-kubectl-google-cloud-config { ##    - configurate the google cloud auth  for the svv project
   gcloud config set project bedag-svv
@@ -39,7 +35,7 @@ function svv-kubectl-google-cloud-config { ##    - configurate the google cloud 
 
 # uses the default settings.xml ... the one chosed with mvn_change_setting
 alias mcis="mvn clean install -DskipTests"
-alias mcis-with-nexus-creds="mcis -P seu-cloud -Ddocker.buildArg.NEXUS_ASSETS_USER=dabbawala-docker-assets -Ddocker.buildArg.NEXUS_ASSETS_PASSWORD=BQGbam7YiTZuLmNBDbIsQUWECyTimgasB8u3XFt3"
+alias mcis-with-nexus-creds="mcis -Ddocker.buildArg.NEXUS_ASSETS_USER=dabbawala-docker-assets -Ddocker.buildArg.NEXUS_ASSETS_PASSWORD=BQGbam7YiTZuLmNBDbIsQUWECyTimgasB8u3XFt3"
 alias del-cluster="bash $MD_SCRIPTS/delete-cluster.sh"      # todo add to md del ?
 alias inst-cluster="bash $MD_SCRIPTS/install-cluster.sh"
 alias h-start="bash $MD_SCRIPTS/helm-start.sh"

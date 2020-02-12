@@ -44,6 +44,9 @@ alias h-dep-upgrade="bash $MD_SCRIPTS/helm-dep-upgrade.sh"
 alias m-start="bash $MD_SCRIPTS/minikube-start.sh"
 alias m-stop="minikube stop"
 
+#
+alias k-pod-versions="kubectl describe pods | grep -i image: -B 2 | grep -i bedag -B 2"
+
 #status about the currently deploying pods in kubectl
 alias pod-states="bash $MD_SCRIPTS/show-pod-deployment-states.sh"
 

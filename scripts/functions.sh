@@ -23,6 +23,8 @@ alias goto-cs-src="cd ${sourceDir}/cheatsheets"
 alias goto-ibft-nw="cd ~/IBFT-Network"
 alias goto-p6-src="cd ~/development/source/fhnw/p6"
 
+alias weather="curl wttr.in/Bern"
+
 # describe pods, example: desc-pod core-0
 alias desc-pod="kubectl describe pods"
 

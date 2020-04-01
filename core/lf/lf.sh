@@ -8,4 +8,4 @@
 # todo extend to list all md functionallity...
 
 MD_SCRIPTS=${MD_INSTALLATION_FOLDER}/scripts
-cat $MD_SCRIPTS/functions.sh
+cat $MD_SCRIPTS/config-functions.sh

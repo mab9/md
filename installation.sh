@@ -13,7 +13,7 @@ function validateThatMdIsNotInstalled() {
 function addBashrcEntry() {
   if test -f ~/.bashrc; then
     printf "\n# md registration" >> ~/.bashrc
-    printf "\nsource ${MD_INSTALLATION_FOLDER}/scripts/functions.sh" >> ~/.bashrc
+    printf "\nsource ${MD_INSTALLATION_FOLDER}/scripts/register.sh" >> ~/.bashrc
   else
     printf "You have no .bashrc file in your home folder.\n You will have to do the installation by your self.\n\n"
   fi

@@ -8,10 +8,10 @@ MD_SCRIPTS=${MD_INSTALLATION_FOLDER}/scripts
 tmp="cd ${sourceDir}/${workingProject}/statistikserver-deployment/docker/helm/statistikserver"
 eval $tmp
 
-rm requirements.lock
-helm3 del --purge statserver
+#rm requirements.lock
+#helm3 del --purge statserver
 
-kubectl delete po --all
+#kubectl delete po --all
 helm3 dep build
 helm3 upgrade --install statserver -f values.yaml -f local-values.yaml .
 #bash $MD_SCRIPTS/show-pod-deployment-states.sh

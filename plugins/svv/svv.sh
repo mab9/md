@@ -20,7 +20,7 @@ function pullLatest() {
 }
 
 function checkDeployments() {
-  echo "Show description of deployed images and pods"
+  echo "Show description of deployed kubernets images and pods"
   echo ""
   kubectl describe pods | egrep -i " core:| frontend:| backend:| pentaho:| camunda:| postgres:| keycloak:" -A 3 | grep -vi container
 }
@@ -28,9 +28,9 @@ function checkDeployments() {
 
 function instructions() {
   echo "Options:"
-  echo "  -l | --pull-latest:    Pull all svv and dab latest docker images"
+  echo "  -l | --pull-latest:         Pull all svv and dab latest docker images"
   echo "  -c | --check-deployments:   Grep check if all latest images are up nd running in minikube"
-  echo "       --help            Show help"
+  echo "       --help:                Show help"
   echo ""
   echo "Usage:"
   echo "  md svv [Options]"

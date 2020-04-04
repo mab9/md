@@ -19,17 +19,17 @@ function pullLatest() {
   docker pull bedag/svvstatistikserver-core:latest
 }
 
-function checkLatest() {
-  echo "Not implemented"
+function checkDeployments() {
+  echo "Show description of deployed images and pods"
   echo ""
-
+  kubectl describe pods | egrep -i " core:| frontend:| backend:| pentaho:| camunda:| postgres:| keycloak:" -A 3 | grep -vi container
 }
 
 
 function instructions() {
   echo "Options:"
   echo "  -l | --pull-latest:    Pull all svv and dab latest docker images"
-  echo "  -c | --check-latest:   Grep check if all latest images are up nd running in minikube"
+  echo "  -c | --check-deployments:   Grep check if all latest images are up nd running in minikube"
   echo "       --help            Show help"
   echo ""
   echo "Usage:"
@@ -56,8 +56,8 @@ function executeDefaults() {
       --pull-latest|-l)
           pullLatest
           ;;
-      --check-latest|-c)
-          checkLatest
+      --check-deployments|-c)
+          checkDeployments
           ;;
       --help)
           help

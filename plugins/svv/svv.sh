@@ -1,9 +1,5 @@
 #!/bin/bash
 
-
-#!/bin/bash
-
-
 function pullLatest() {
   echo "Pull all svv / dab latest images from dockerhub"
   echo ""

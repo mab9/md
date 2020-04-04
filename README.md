@@ -21,25 +21,16 @@
 - add descriptions and lists of all functions to help
 - write some demos and how to's
 
+- cool next steps: 
+  -  separate config-functiosn into plugin 
+  -  separate config-cluster into svv and project specific plugins
+  -  refactor lf core function
+  -  add jav change java function as core thing
+  -  make plugin register.sh that sources all register.sh in each plugin folder
+  -  add c alias ;-) 
+
 ## demos and how tos
  
-### Minikube installation, run application and stop
-1. install md, run installation script:              bash installation.sh
-2. choose a working project:                         md config -w 
-3. generate / build the working project project:     md gen -a
-4. install minikube:                                 inst-cluster
-5. mount storage:                                    copy, extend, paste code that was printed in your terminal 
-6. configure svv kubernetes env:                     h-start
-7. use started project.
-8. stop minikube:                                    m-stop
-
-### Use a custom module on a running system 
-
-1. Make changes in your chosen module
-2. Update your local-values with new version 
-3. build module:                                     md gen -m core
-4. Upgrade helm template:                            h-upgrade / md h-upgrade (future...)     
-5. redeploy it on cluster:                           md del -p core
 
 ## Bash best practices 
 https://codeburst.io/13-tips-tricks-for-writing-shell-scripts-with-awesome-ux-19a525ae05ae

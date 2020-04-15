@@ -9,4 +9,4 @@ alias goto-md-src="cd ${MD_INSTALLATION_FOLDER}"
 alias goto-cs-src="cd ${sourceDir}/cheatsheets"
 alias goto-ibft-nw="cd ~/IBFT-Network"
 alias goto-p6-src="cd ~/development/source/fhnw/p6"
-
+alias goto-plansch-src="cd ~/development/source/fhnw/plansch"

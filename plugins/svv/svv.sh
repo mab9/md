@@ -5,13 +5,23 @@ function pullLatest() {
   echo ""
   docker login
   docker pull bedag/dabbawala-postgres:latest
+  echo ""
   docker pull bedag/dabbawala-keycloak:latest
+  echo ""
   docker pull bedag/dabbawala-pentaho:latest
+  echo ""
   docker pull bedag/dabbawala-core:latest
+  echo ""
   docker pull bedag/dabbawala-camunda:latest
+  echo ""
   docker pull bedag/svvstatistikserver-backend:latest
+  echo ""
+  docker pull bedag/svvstatistikserver-pentaho:latest
+  echo ""
   docker pull bedag/svvstatistikserver-keycloak:latest
+  echo ""
   docker pull bedag/svvstatistikserver-frontend:latest
+  echo ""
   docker pull bedag/svvstatistikserver-core:latest
 }
 

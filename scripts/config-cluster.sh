@@ -10,10 +10,12 @@ alias kversions="kubectl describe pods | grep -i image: -B 2 | grep -i bedag -B 
 
 
 # set minikube docker env to the bash, minikube has to be started to set the docker env.
-alias set-docker-env="eval $(minikube -p minikube docker-env)"
+function set-docker-env {
+  eval $(minikube -p minikube docker-env)
+}
 
-alias cluster-delete="bash $MD_SCRIPTS/md-delete-cluster.sh"      # todo add to md del ?
-alias cluster-install="bash $MD_SCRIPTS/md-install-cluster.sh"
+alias m-delete="bash $MD_SCRIPTS/md-delete-cluster.sh"      # todo add to md del ?
+alias m-install="bash $MD_SCRIPTS/md-install-cluster.sh"
 alias h-refresh="bash $MD_SCRIPTS/md-helm-refresh.sh"
 alias h-dep-upgrade="bash $MD_SCRIPTS/md-helm-dep-upgrade.sh"
 alias m-start="bash $MD_SCRIPTS/md-minikube-start.sh"

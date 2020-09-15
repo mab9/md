@@ -1,13 +1,15 @@
-minikube start --kubernetes-version=1.15.4  --memory 10000
-#minikube start --memory 7120
+minikube start --kubernetes-version=1.15.4 --memory 10000 --disk-size 64g 
+minikube config set WantUpdateNotification false  # only needed once at installation time!
 
 kubectl create clusterrolebinding --serviceaccount=kube-system:default --clusterrole=cluster-admin default-sa-cluster-admin
 kubectl --namespace=kube-system get pod | grep ^kubernetes-dashboard | awk '{print $1}' | xargs kubectl delete pod --namespace=kube-system
 
-kubectl create serviceaccount tiller --namespace kube-system
-kubectl create clusterrolebinding --serviceaccount=kube-system --clusterrole=cluster-admin
+#kubectl create serviceaccount tiller --namespace kube-system
+#kubectl create clusterrolebinding --serviceaccount=kube-system --clusterrole=cluster-admin
 
-helm3 upgrade --install statserver -f values.yaml -f local-values.yaml .
+path=/home/mab/development/source/svvstatistikserver/statistikserver-deployment/docker/helm/statistikserver
+
+helm upgrade --install statserver -f ${path}/values.yaml -f ${path}/local-values.yaml .
 minikube addons enable ingress
 
 

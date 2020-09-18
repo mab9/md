@@ -11,3 +11,4 @@ source ${MD_SCRIPTS}/config-functions.sh
 source ${MD_SCRIPTS}/config-frameworks.sh
 source ${MD_SCRIPTS}/config-cluster.sh
 source ${MD_SCRIPTS}/config-gotos.sh
+source ${MD_SCRIPTS}/git-completion.sh

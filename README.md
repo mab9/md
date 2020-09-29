@@ -18,6 +18,8 @@ To install md, follow these steps:
 
 Linux:
 ```
+https://github.com/mab9/md.git
+cd ./md
 bash installation.sh
 ```
 

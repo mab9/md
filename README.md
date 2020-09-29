@@ -12,13 +12,15 @@ Md is a tool that allows developers to reduce their repetitive tasks.
 The tool offers core functions and the possibility to integrate and use self written plugins for the dev workflow.
 It aims to make it easier to work on different devices by providing the same functions.
 
+<!---
 ## Prerequisites
 
 Before you begin, ensure you have met the following requirements:
-<!--- These are just example requirements. Add, duplicate or remove as required --->
+These are just example requirements. Add, duplicate or remove as required --->
 * You have installed the latest version of `<coding_language/dependency/requirement_1>`
 * You have a Linux machine or a linux shell.
-* You have read `<guide/link/documentation_related_to_project>`.
+* You have read `<guide/link/documentation_related_to_project>`. 
+-->
 
 ## Installing md
 

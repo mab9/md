@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION=0.0.1
+VERSION=1.0.0
 
 # Define the colors
 ## https://misc.flogisoft.com/bash/tip_colors_and_formatting

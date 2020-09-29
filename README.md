@@ -18,7 +18,8 @@ To install md, follow these steps:
 
 Linux:
 ```
-bash installation.sh
+git clone https://github.com/mab9/md.git
+bash ./md/installation.sh
 ```
 
 ## Using md
@@ -95,8 +96,6 @@ Alternatively see the GitHub documentation on [creating a pull request](https://
 - Make core scripts generic
 - add md autocompletion
 - Extend the use of the working directory
-- Test Installation script
-
 
 ## Contributors
 

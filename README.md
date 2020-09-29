@@ -96,8 +96,6 @@ Alternatively see the GitHub documentation on [creating a pull request](https://
 - Make core scripts generic
 - add md autocompletion
 - Extend the use of the working directory
-- Test Installation script
-
 
 ## Contributors
 

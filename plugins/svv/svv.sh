@@ -1,5 +1,19 @@
 #!/bin/bash
 
+FILE_DIRECTORY=`dirname "$0"`
+
+function installCluster() {
+  bash $FILE_DIRECTORY/install-cluster.sh
+}
+
+function startCluster() {
+  bash $FILE_DIRECTORY/start-cluster.sh
+}
+
+function deleteCluster() {
+  bash $FILE_DIRECTORY/delete-cluster.sh
+}
+
 function pullLatest() {
   echo "Pull all svv / dab latest images from dockerhub"
   echo ""
@@ -52,6 +66,9 @@ function instructions() {
   echo "  -l | --pull-latest:         Pull all svv and dab latest docker images"
   echo "  -c | --check-deployments:   Grep check if all latest images are up nd running in minikube"
   echo "  -m | --mandant-infos:       Show mandant gesellschafts number, credentials"
+  echo "  -i | --install-cluster:     Install svv minikube cluster"
+  echo "  -s | --start-cluster:       Start svv minikube cluster"
+  echo "  -d | --delete-cluster:      Stop and delete svv minikube cluster"
   echo "       --help:                Show help"
   echo ""
   echo "Usage:"
@@ -83,6 +100,15 @@ function executeDefaults() {
           ;;
       --mandant-infos|-m)
           printMandantInfos
+          ;;
+      --install-cluster|-i)
+          installCluster
+          ;;
+      --start-cluster|-s)
+          startCluster
+          ;;
+      --delete-cluster|-d)
+          startCluster
           ;;
       --help)
           help

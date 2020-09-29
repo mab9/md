@@ -9,18 +9,8 @@
 
 Md is a tool that allows developers to reduce their repetitive tasks.
 
-The tool offers core functions and the possibility to integrate and use self written plugins for the dev workflow.
+The tool offers core functions and the possibility to integrate and use self written plugins to improve the dev workflow.
 It aims to make it easier to work on different devices by providing the same functions.
-
-<!---
-## Prerequisites
-
-Before you begin, ensure you have met the following requirements:
-These are just example requirements. Add, duplicate or remove as required --->
-* You have installed the latest version of `<coding_language/dependency/requirement_1>`
-* You have a Linux machine or a linux shell.
-* You have read `<guide/link/documentation_related_to_project>`. 
--->
 
 ## Installing md
 
@@ -41,16 +31,19 @@ To use md, follow these steps:
 3. help: md help | md | md -h
 ```
 
-**Example: use different maven settings.xml files (instead to use a project config ;-))**
+**Example: cmdanalyse lists the most used commands (possible aliases or workflow improvements)**
 
 ```
-md mvn -c
+md cmdanalyse
  
-Select new default mvn setting
-
-1) settings-dab.xml     3) settings-security.xml    5) settings.xml
-2) settings-empty.xml   4) settings-svv.xml         6) exit 
+     50 git status 
+     41 exit  
+     27 c  
+     26 ls  
+     ...
 ```
+
+With this core function, you may decide to write an alias or improve your dev workflow with a self written plugin.
 
 **Example: Create and use a new plugin. As example, we named the new plugin: magic.**
 
@@ -72,6 +65,16 @@ touch ./magic/resource.sh       // add a file named resource.sh into your plugin
 
 All resource.sh files within the md folder will be sourced. See scripts/register.sh 
 
+**Example: use different maven settings.xml files (instead to use a project config ;-))**
+
+```
+md mvn -c
+ 
+Select new default mvn setting
+
+1) settings-dab.xml     3) settings-security.xml    5) settings.xml
+2) settings-empty.xml   4) settings-svv.xml         6) exit 
+```
 
 ## Contributing to md
 <!--- If your README is long or you have some specific process or steps you want contributors to follow, consider creating a separate CONTRIBUTING.md file--->

@@ -2,6 +2,10 @@
 
 FILE_DIRECTORY=`dirname "$0"`
 
+function changeKubectlNs() {
+  bash $FILE_DIRECTORY/change-kubectl-ns.sh $@
+}
+
 function installCluster() {
   bash $FILE_DIRECTORY/install-cluster.sh
 }
@@ -69,6 +73,7 @@ function instructions() {
   echo "  -i | --install-cluster:     Install svv minikube cluster"
   echo "  -s | --start-cluster:       Start svv minikube cluster"
   echo "  -d | --delete-cluster:      Stop and delete svv minikube cluster"
+  echo "  -e | --change-ns:           Change kubectl namespace"
   echo "       --help:                Show help"
   echo ""
   echo "Usage:"
@@ -92,6 +97,9 @@ function executeDefaults() {
   command="$2" # second layer
 
   case $command in
+      --change-ns|-e)
+          changeKubectlNs $@
+          ;;
       --pull-latest|-l)
           pullLatest
           ;;

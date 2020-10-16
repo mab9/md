@@ -50,10 +50,10 @@ With this core function, you may decide to write an alias or improve your dev wo
 
 ```
 cd ./md/plugins
-mkdir -p ./personal-plugins/magic   // create a git repo to manage your own plugins or just give your plugin a group name "personal-plugins"
-touch ./personal-plugins/magic/magic.sh             // add your script code into the magic.sh file
+mkdir -p ./personal-plugins/magic        // create a git repo to manage your own plugins or just give your plugin a group name "personal-plugins"
+touch ./personal-plugins/magic/magic.sh  // add your script code into the magic.sh file
 
-md magic                           // use the new plugin
+md magic                                 // use the new plugin
 ```
 
 *Hint* the group name or repository name must end with "-plugins"!
@@ -63,7 +63,7 @@ Have a look [here](https://codeburst.io/13-tips-tricks-for-writing-shell-scripts
 **Example: Add plugin files that shall be [sourced](https://linuxize.com/post/bash-source-command/) and accesible. It is useful to load functions, variables, and configuration files into shell scripts.**
 
 ```
-touch ./magic/resource.sh       // add a file named resource.sh into your plugin folder
+touch ./personal-plugins/magic/resource.sh       // add a file named resource.sh into your plugin folder
 ```
 
 All resource.sh files within the md folder will be sourced. See scripts/register.sh 

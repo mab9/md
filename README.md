@@ -93,8 +93,6 @@ Alternatively see the GitHub documentation on [creating a pull request](https://
 
 ## My next ideas
 
-- separate personal plugins into own folder / repository.
-- make a first version and tag it.
 - Make core scripts generic
 - add md autocompletion
 - Extend the use of the working directory

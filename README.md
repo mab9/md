@@ -50,11 +50,13 @@ With this core function, you may decide to write an alias or improve your dev wo
 
 ```
 cd ./md/plugins
-mkdir ./magic
-touch ./magic/magic.sh          // add your script code into the magic.sh file
+mkdir -p ./personal-plugins/magic   // create a git repo to manage your own plugins or just give your plugin a group name "personal-plugins"
+touch ./personal-plugins/magic/magic.sh             // add your script code into the magic.sh file
 
-md magic                        // use the new plugin
+md magic                           // use the new plugin
 ```
+
+*Hint* the group name or repository name must end with "-plugins"!
 
 Have a look [here](https://codeburst.io/13-tips-tricks-for-writing-shell-scripts-with-awesome-ux-19a525ae05ae) for some bash tips and tricks. 
 

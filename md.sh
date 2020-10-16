@@ -35,7 +35,7 @@ function helpme () {
 
     ### PLUGINS
     for plugin in "${plugins[@]}"; do
-    echo -e "        ${COMMAND}$plugin${CLEAN}"
+    echo -e "        ${COMMAND}$(basename $plugin)${CLEAN}"
     done
     echo -e ""
 }
@@ -67,11 +67,13 @@ function executeCorePlugin() {
 
 function executePlugin() {
   ## gather installed plugins
-  plugins=($(ls ${MD_INSTALLATION_FOLDER}/plugins/))
+  pluginFolder=${MD_INSTALLATION_FOLDER}/plugins/*-plugins/*
+  plugins=($(ls -d ${pluginFolder} | egrep -iv "license|readme"))
 
   for elem in "${plugins[@]}"; do
-    if [ "$elem" = "$1" ]; then
-      bash "${MD_INSTALLATION_FOLDER}/plugins/${elem}/${elem}.sh" "$@"
+    if [ "$(basename $elem)" = "$1" ]; then
+      bash $elem/$(basename $elem).sh "$@"
+      #bash "${MD_INSTALLATION_FOLDER}/plugins/${elem}/${elem}.sh" "$@"
       exit
     fi
   done

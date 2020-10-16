@@ -5,3 +5,5 @@ echo dev
 echo test
 echo beta
 echo testq
+
+echo "md svv -e test"

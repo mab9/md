@@ -5,11 +5,11 @@ FILE_DIRECTORY=`dirname "$0"`
 function cisvc-local() {
   # sshgwcibe.ad.bedag.ch 172.29.58.157
   ip=172.29.58.157
-  result=$(nslookup ${ip})
-  if [[ $result == *"can't find"* ]]; then
-    echo "Could not resolve ${ip}!"
-    return
-  fi
+  #result=$(curl ${ip})
+  #if [[ $result == *"Could not resolve host"* ]]; then
+  #  echo "Could not resolve ${ip}!"
+  #  #return
+  #fi
   ssh rb25@cisvc-local@${ip}
 }
 

@@ -62,18 +62,29 @@ function printMandantInfos() {
   echo "National - 20038 - 2bf9f9d6-72d9-4fae-a6bf-7988376f64f8 -	SZ04WQhtheSZ3g== - SSLXT4JY73"
   echo "Vaudoise - 20036 - ddaa8a7f-f0b6-4250-99bb-9011f998de39 -	I4VEVxcN+ozrpw== - 9K0VKT51EJ"
   echo "Zürich   - 20060 - 41c6dbea-d160-48ae-9000-6d5db4b55d14 -	Q/5BNmQBnuf4tQ== - Y0578XQZVX"
-} 
+}
+
+function printCreds() {
+  echo "Test Credentials"
+  echo ""
+  echo "id                 | pw"
+  echo "___________________________________________________"
+  echo "dabbawala          | 9AAwZADKmsorb9eT74Y1jARzBt7Amx"
+  echo "knowledgebase      | cWRxUGZueHJFb1E3RHlVVk1JWC1SYz"
+  echo "knowledgebaseadmin | qdqPfnxrEoQ7DyUVMIX-Rc67PjlKj1"
+}
 
 
 function instructions() {
   echo "Options:"
-  echo "  -l | --pull-latest:         Pull all svv and dab latest docker images"
-  echo "  -c | --check-deployments:   Grep check if all latest images are up nd running in minikube"
-  echo "  -m | --mandant-infos:       Show mandant gesellschafts number, credentials"
-  echo "  -i | --install-cluster:     Install svv minikube cluster"
-  echo "  -s | --start-cluster:       Start svv minikube cluster"
-  echo "  -d | --delete-cluster:      Stop and delete svv minikube cluster"
+  echo "  -c | --credentials-infos:   Show test credentials"
+  echo "  -d | --deployments-check:   Grep check if all latest images are up nd running in minikube"
+  echo "  -r | --remove-cluster:      Stop and delete svv minikube cluster"
   echo "  -e | --change-ns:           Change kubectl namespace"
+  echo "  -i | --install-cluster:     Install svv minikube cluster"
+  echo "  -p | --pull-latest:         Pull all svv and dab latest docker images"
+  echo "  -s | --start-cluster:       Start svv minikube cluster"
+  echo "  -t | --tenant-infos:        Show tenant gesellschafts number, credentials"
   echo "       --help:                Show help"
   echo ""
   echo "Usage:"
@@ -97,16 +108,19 @@ function executeDefaults() {
   command="$2" # second layer
 
   case $command in
+      --credentials-infos|-c)
+          printCreds
+          ;;
       --change-ns|-e)
           changeKubectlNs $@
           ;;
-      --pull-latest|-l)
+      --pull-latest|-p)
           pullLatest
           ;;
-      --check-deployments|-c)
+      --deployments-check|-d)
           checkDeployments
           ;;
-      --mandant-infos|-m)
+      --tenant-infos|-t)
           printMandantInfos
           ;;
       --install-cluster|-i)
@@ -115,7 +129,7 @@ function executeDefaults() {
       --start-cluster|-s)
           startCluster
           ;;
-      --delete-cluster|-d)
+      --remove-cluster|-r)
           startCluster
           ;;
       --help)

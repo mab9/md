@@ -68,7 +68,6 @@ function printCreds() {
   echo "Test Credentials"
   echo ""
   echo "id                 | pw"
-  echo "___________________________________________________"
   echo "dabbawala          | 9AAwZADKmsorb9eT74Y1jARzBt7Amx"
   echo "knowledgebase      | cWRxUGZueHJFb1E3RHlVVk1JWC1SYz"
   echo "knowledgebaseadmin | qdqPfnxrEoQ7DyUVMIX-Rc67PjlKj1"
@@ -79,10 +78,10 @@ function instructions() {
   echo "Options:"
   echo "  -c | --credentials-infos:   Show test credentials"
   echo "  -d | --deployments-check:   Grep check if all latest images are up nd running in minikube"
-  echo "  -r | --remove-cluster:      Stop and delete svv minikube cluster"
   echo "  -e | --change-ns:           Change kubectl namespace"
   echo "  -i | --install-cluster:     Install svv minikube cluster"
   echo "  -p | --pull-latest:         Pull all svv and dab latest docker images"
+  echo "  -r | --remove-cluster:      Stop and delete svv minikube cluster"
   echo "  -s | --start-cluster:       Start svv minikube cluster"
   echo "  -t | --tenant-infos:        Show tenant gesellschafts number, credentials"
   echo "       --help:                Show help"
@@ -130,7 +129,7 @@ function executeDefaults() {
           startCluster
           ;;
       --remove-cluster|-r)
-          startCluster
+          deleteCluster
           ;;
       --help)
           help

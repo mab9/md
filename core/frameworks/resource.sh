@@ -33,3 +33,10 @@ then
   alias h=helm
   source <(helm completion bash)
 fi
+
+
+if command -v docker &> /dev/null
+then
+  # register docker
+  alias d=docker
+fi

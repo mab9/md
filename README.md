@@ -96,6 +96,7 @@ Alternatively see the GitHub documentation on [creating a pull request](https://
 - Make core scripts generic
 - add md autocompletion
 - Extend the use of the working directory
+- Add a logging script with a lot of inos about logging [like](https://sematext.com/blog/journald-logging-tutorial/)
 
 ## Contributors
 

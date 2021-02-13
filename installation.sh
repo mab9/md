@@ -30,7 +30,7 @@ function createMdConfigFile() {
 
   printf "working-project=\n" >> ~/.md
   printf "\nPlease chose your working-project:\n"
-  bash $MD_INSTALLATION_FOLDER/core/config/config.sh -w
+  #bash $MD_INSTALLATION_FOLDER/core/config/config.sh -w
 
   printf "\nThe md config file ~/.md was created\n"
 }

@@ -1,15 +1,30 @@
 #!/bin/bash
 
 
+mdConfigFile=${HOME}/.md
+workingProject=$(cat $mdConfigFile | grep -i working-project | cut -d "=" -f 2)
+sourceDir=$(cat $mdConfigFile | grep -i source-dir | cut -d "=" -f 2)
+
+toolkits=(js-toolkit camunda-toolkit pentaho-toolkit css-toolkit)
+#toolkits=(js-toolkit tolly)
+
+
 function cloneToolkits() {
   echo "Start cloning mab's toolkits from github.com/mab9"
   echo ""
 
-  # check if already cloned.
-  #  if existing then do nothing and echo that its already existing
-  #  if not existing go to development source folder and clone repo
-  #
-
+  for item in "${toolkits[@]}"; do
+      # todo make directory generic  "${sourceDir}/${elem}" does not work with ~/ syntax
+      directory=/home/mab/development/source/${item}
+      if [ -d $directory ]; then
+          echo "Repository ${item} already exists"
+      else
+          eval pushd ${sourceDir} > /dev/null
+          eval git clone https://github.com/mab9/${item}.git
+          popd > /dev/null
+          echo ""
+      fi
+  done
 }
 
 function updateToolkits() {

@@ -53,6 +53,8 @@ function executeCorePlugin() {
   ## gather installed core scripts
   core=($(ls ${MD_INSTALLATION_FOLDER}/core/))
 
+  # todo remove framework item
+
   for elem in "${core[@]}"; do
     if [ "$elem" = "$1" ]; then
       bash "${MD_INSTALLATION_FOLDER}/core/${elem}/${elem}.sh" "$@"

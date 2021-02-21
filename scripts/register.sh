@@ -20,6 +20,5 @@ source ${MD_SCRIPTS}/config-functions.sh
 source ${MD_SCRIPTS}/git-completion.sh
 
 
-## completion and bin folder
-source ${MD_INSTALLATION_FOLDER}/bin/md-completion.sh
-export PATH=$PATH:${MD_INSTALLATION_FOLDER}/bin
+## completion
+source ${MD_SCRIPTS}/md-completion.sh

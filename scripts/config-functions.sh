@@ -25,6 +25,8 @@ alias c="clear"
 alias pentaho.spoon='nohup pentaho-data-integration-spicule.spoon &>/dev/null & && exit'
 alias pentaho.report-designer='nohup bash /home/mab/development/apps/pentaho/report-designer/report-designer.sh &>/dev/null &'
 alias pentaho.metadata-editor='nohup bash /home/mab/development/apps/pentaho/metadata-editor/metadata-editor.sh &>/dev/null &'
+alias pentaho.server-7.1.0.0-12='nohup bash /home/mab/development/apps/pentaho/pentaho-server-7.1.0.0-12/start-pentaho.sh &>/dev/null &'
+alias pentaho.server-8.2.0.0-342='nohup bash /home/mab/development/apps/pentaho/pentaho-server-8.2.0.0-342/start-pentaho.sh &>/dev/null &'
 
 
 

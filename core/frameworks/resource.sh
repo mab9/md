@@ -10,6 +10,8 @@ then
     alias k=kubectl
     complete -F __start_kubectl k
 
+    alias sk=kubectl
+    complete -F __start_kubectl sk
 
     alias kall="kubectl delete po --all --grace-period=0 --force"
     alias kversions="kubectl describe pods | grep -i image: -B 2 | grep -i bedag -B 2"

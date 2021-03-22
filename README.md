@@ -12,6 +12,8 @@ Md is a tool that allows developers to reduce their repetitive tasks.
 The tool offers core functions and the possibility to integrate and use self written plugins to improve the dev workflow.
 It aims to make it easier to work on different devices by providing the same functions.
 
+![md-overview](./img/md.png "md-overview")
+
 ## Installing md
 
 To install md, follow these steps:

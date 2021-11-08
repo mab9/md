@@ -8,16 +8,16 @@ echo "create tag"
 echo "git tag 1.0.0"
 
 echo ""
-echo "push tags"
+echo "push tags remote"
 echo "git push origin --tags"
 
 echo ""
-echo "delete tag "
+echo "delete tag from local repository"
 echo "git tag -d 1.0.0"
 echo "Note that this does not remove the tag from any remote servers."
 
 echo ""
-echo "delete tag from any remote servers"
+echo "delete tag from any remote repositories"
 echo "git push origin --delete 1.0.0"
 # $ git tag -d v1.4-lw
 # Deleted tag 'v1.4-lw' (was e7d5add)

@@ -10,6 +10,9 @@ then
     alias k=kubectl
     complete -F __start_kubectl k
 
+    # use vim alternative
+    export KUBE_EDITOR="nano"
+
     #alias sk=kubectl
     #complete -F __start_kubectl sk
 

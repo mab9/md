@@ -34,3 +34,8 @@ alias gs="git status"
 alias gp="git pull"
 alias gc="git commit"
 alias gaall="git add ."
+
+
+
+# cpu limit for authy
+# pgrep authy | xargs -i cpulimit --pid {} --limit 1 --background

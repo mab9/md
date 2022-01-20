@@ -36,6 +36,7 @@ alias gc="git commit"
 alias gaall="git add ."
 
 
+alias teardown-vpn="sudo pkill sshuttle && pkill NSGClient && sudo systemctl restart NetworkManager.service && sudo systemd-resolve --flush-caches && sudo systemctl stop traps_* && pkill authy"
 
 # cpu limit for authy
 # pgrep authy | xargs -i cpulimit --pid {} --limit 1 --background

@@ -41,3 +41,13 @@ echo ""
 echo "remove last x commits from local history in case not published ;-)"
 echo "git reset --soft HEAD~2"
 echo "the nuber represents the amount of commits to be removed."
+
+echo ""
+echo "Update author of last N commits"
+echo "git rebase -i HEAD~N -x \"git commit --amend --reset-author --no-edit\""
+echo "where N equals to the amount of commits to updated."
+echo ""
+echo "Probably you will have to update the user.email or user.name before ahead."
+echo "git config --local | --global user.email=piz.tambo@spluegen.ch"
+echo "To review the config cat ./git/config in project or home... or git config -l (--local)"
+

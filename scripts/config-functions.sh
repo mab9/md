@@ -45,6 +45,9 @@ alias gaall="git add ."
 # todo create final function egrep -i 'critical|warning|failur|error|failed|warn|stopped'
 alias grep-errors="critical|warning|failure|error|failed|warn|stopped"
 
+# this alias would be cool. it is somehow executed on load of it and the running in endless loop on terminal startup :(
+# alias source='source ~/.bashrc'  # define as alias, so we know, there is something ...
+
 function teardown-vpn() {
   sudo pkill sshuttle
   pkill NSGClient

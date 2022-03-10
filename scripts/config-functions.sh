@@ -49,12 +49,19 @@ alias grep-errors="critical|warning|failure|error|failed|warn|stopped"
 # alias source='source ~/.bashrc'  # define as alias, so we know, there is something ...
 
 function teardown-vpn() {
+  pkill authy
   sudo pkill sshuttle
   pkill NSGClient
-  sudo systemctl restart NetworkManager.service
-  sudo systemd-resolve --flush-caches
+
   sudo systemctl stop traps_*
-  pkill authy
+  echo "Stopped authy, sshutle, traps services and nsgclient"
+
+  sudo rm /etc/resolvconf/resolv.conf.d/head 2> /dev/null
+  echo "Removed citrix manipulated resolveconf head file"
+  sudo systemd-resolve --flush-caches
+  sudo systemctl restart resolvconf.service
+  sudo systemctl restart NetworkManager.service
+  echo "Restarted resolveconf and network manager services"
 }
 
 alias teardown-vpn=teardown-vpn  # define as alias, so we know, there is something ...

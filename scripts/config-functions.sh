@@ -23,6 +23,7 @@ alias c="clear"
 
 # https://www.maketecheasier.com/run-bash-commands-background-linux/ open in the background
 alias pentaho.spoon-8='nohup pentaho-data-integration-spicule.spoon &>/dev/null &'
+alias pentaho.spoon-9='nohup /opt/pentaho/pdi-9.3.0/spoon.sh &>/dev/null &'
 alias pentaho.report-designer='nohup bash /home/mab/development/apps/pentaho/report-designer/report-designer.sh &>/dev/null &'
 alias pentaho.metadata-editor='nohup bash /home/mab/development/apps/pentaho/metadata-editor/metadata-editor.sh &>/dev/null &'
 alias pentaho.server-7.1.0.0-12='nohup bash /home/mab/development/apps/pentaho/pentaho-server-7.1.0.0-12/start-pentaho.sh &>/dev/null &'
